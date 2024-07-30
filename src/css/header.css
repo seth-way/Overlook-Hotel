@@ -100,5 +100,12 @@ header {
   left: 0;
   right: 0;
   height: 100vh;
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: background-image 1s ease-in;
   z-index: -2;
 }
