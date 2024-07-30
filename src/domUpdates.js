@@ -8,6 +8,7 @@ const allMenus = document.querySelectorAll('.menu');
 //- buttons -//
 const openMenuBtns = document.querySelectorAll('.open-menu-btn');
 const userLoginBtns = document.getElementById('user-login-grp');
+let closeMenuBtns;
 /*--- FUNCTIONS ---*/
 export function loadContent() {
   updateMenuButtons();
@@ -18,13 +19,14 @@ function updateMenuButtons() {
   openMenuBtns.forEach(button => {
     createCloseBtn(button);
   });
+
+  closeMenuBtns = document.querySelectorAll('.close-menu-btn');
 }
 
 function updateHeaderBackgroundImg(idx = 0) {
   idx = idx % imageURLs.length;
   const imgUrl = `url('${imageURLs[idx]}')`;
-  headerImg.style.backgroundImage = imgUrl
-
+  headerImg.style.backgroundImage = imgUrl;
 
   setTimeout(() => {
     updateHeaderBackgroundImg(idx + 1);
@@ -65,11 +67,30 @@ export function toggleMenuBtns(clickedBtn, otherBtn) {
   }, 500);
 }
 
+export function hideCloseMenuBtns() {
+  closeMenuBtns.forEach(button => {
+    hideElement(button, 'hidden');
+    button.querySelector('img').classList.add('clear');
+  });
+}
+
 function getMenuType(button) {
   const { id } = button;
   return id.split('-')[1];
 }
+//- hide / unhide element -//
+export function hideElement(element, ...hiddenClasses) {
+  element.classList.add(...hiddenClasses);
+  element.setAttribute('aria-hidden', 'true');
+  element.disabled = 'true';
+}
 
+function unhideElement(element) {
+  element.classList.remove('clear', 'minimized', 'hidden');
+  element.setAttribute('aria-hidden', 'false');
+  element.removeAttribute('disabled');
+}
+//- toggle menu drawer -//
 export function openMenu(menuType) {
   displayMenu(menuType);
   unhideElement(menuDrawer);
@@ -85,18 +106,6 @@ export function closeMenu(closeBtn) {
       closeBtn.querySelector('img').classList.add('clear');
     }, 500);
   }
-}
-//- hide / unhide element -//
-export function hideElement(element, ...hiddenClasses) {
-  element.classList.add(...hiddenClasses);
-  element.setAttribute('aria-hidden', 'true');
-  element.disabled = 'true';
-}
-
-function unhideElement(element) {
-  element.classList.remove('clear', 'minimized', 'hidden');
-  element.setAttribute('aria-hidden', 'false');
-  element.removeAttribute('disabled');
 }
 //- display menu views -//
 export function displayMenu(menuType) {

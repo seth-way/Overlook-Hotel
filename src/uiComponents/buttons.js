@@ -2,6 +2,7 @@ import {
   openMenu,
   closeMenu,
   // toggleLoginBtns,
+  hideCloseMenuBtns,
   hideElement,
   toggleMenuBtns,
 } from '../domUpdates';
@@ -10,7 +11,7 @@ import {
 export function handleLoginBtnClick(e) {
   const clickedBtn = e.target.closest('button');
   const { id } = clickedBtn;
-
+  hideCloseMenuBtns();
   if (id.includes('sign-in')) {
     openMenu('login');
   } else {
