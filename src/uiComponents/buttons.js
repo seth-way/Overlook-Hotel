@@ -1,35 +1,7 @@
 import {
-  openMenu,
-  closeMenu,
-  // toggleLoginBtns,
-  hideCloseMenuBtns,
   hideElement,
-  toggleMenuBtns,
 } from '../domUpdates';
 /*--- FUNCTIONS ---*/
-//- click handlers -//
-export function handleLoginBtnClick(e) {
-  const clickedBtn = e.target.closest('button');
-  const { id } = clickedBtn;
-  hideCloseMenuBtns();
-  if (id.includes('sign-in')) {
-    openMenu('login');
-  } else {
-    openMenu('logout');
-  }
-}
-
-export function handleMenuBtnClick(e) {
-  const clickedBtn = e.target.closest('button');
-  const otherBtn = getComplimentaryBtn(clickedBtn);
-  toggleMenuBtns(clickedBtn, otherBtn);
-}
-
-export function handleCloseBtnClick(e) {
-  const menu = e.target.closest('.menu');
-  hideElement(menu);
-  closeMenu();
-}
 //- create button functions -//
 export function createCloseBtn(openBtn) {
   const { parentNode, id } = openBtn;
@@ -53,7 +25,7 @@ function createCloseBtnContent(closeBtn) {
   closeBtn.appendChild(content);
 }
 //- button utility functions -//
-function getComplimentaryBtn(clickedBtn) {
+export function getComplimentaryBtn(clickedBtn) {
   const { id } = clickedBtn;
   const otherId = getComplimentaryBtnId(id);
   const otherBtn = document.getElementById(otherId);
