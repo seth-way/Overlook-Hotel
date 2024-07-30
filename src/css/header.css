@@ -1,0 +1,111 @@
+header {
+  position: relative;
+  height: 100vh;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(black, transparent, black);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+
+  nav {
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1em 3em;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 1.5rem;
+      font-style: normal;
+      font-weight: 200;
+      white-space: nowrap;
+      letter-spacing: 0.7rem;
+    }
+
+    & > div:first-child {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.5em;
+
+      hr {
+        width: 2px;
+        height: 2.5rem;
+        background: white;
+      }
+
+      svg {
+        height: 4rem;
+        aspect-ratio: 1 / 1;
+      }
+    }
+
+    #user-login-grp {
+      display: flex;
+      align-items: center;
+      height: 1em;
+      justify-content: flex-end;
+      margin-bottom: 1em;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    .login {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      text-transform: none;
+      border: none;
+      background: transparent;
+      color: white;
+      img {
+        height: 100%;
+        width: auto;
+        aspect-ratio: 1 / 1;
+        color: white;
+      }
+    }
+
+    ul.menu-options {
+      margin: 0;
+      display: flex;
+      gap: 1em;
+
+      li {
+        list-style: none;
+        position: relative;
+        margin: 1.5em 0;
+      }
+
+      img {
+        height: 0.8em;
+      }
+    }
+  }
+}
+
+#header-img-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: background-image 1s ease-in;
+  z-index: -2;
+}

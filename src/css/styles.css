@@ -1,4 +1,35 @@
+@import 'buttons';
+@import 'header';
+@import 'menus';
+@import 'variables';
+
+*,
+*:before,
+*:after {
+  font-family: Neue Helvetica, helvetica, sans-serif;
+}
 
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  margin: 0;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.minimized {
+  transform: scaleY(0);
+}
+
+.clear {
+  border-color: transparent !important;
+  color: transparent !important;
+  background: transparent !important;
+  opacity: 0;
 }

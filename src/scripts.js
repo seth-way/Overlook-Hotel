@@ -1,11 +1,27 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/styles.css';
+import './images/upTriangle.svg';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+import { loadContent } from './domUpdates';
+import {
+  handleLoginBtnClick,
+  handleMenuBtnClick,
+  handleCloseBtnClick,
+} from './uiComponents/buttons';
 
+/*--- GLOBALS ---*/
+var isSignedIn = false;
+/*--- DOM ELEMENTS ---*/
+//- buttons -//
+const userLoginBtns = document.getElementById('user-login-grp');
+const menuBtnGroups = document.querySelectorAll('.menu-options > li');
+const closeFormBtns = document.querySelectorAll('.menu > .close');
+/*--- EVENT LISTENERS ---*/
+window.onload = start;
+userLoginBtns.onclick = handleLoginBtnClick;
+menuBtnGroups.forEach(buttonGrp => (buttonGrp.onclick = handleMenuBtnClick));
+closeFormBtns.forEach(button => button.onclick = handleCloseBtnClick)
 
-console.log('This is the JavaScript entry file - your code begins here.');
+/*--- FUNCTIONS ---*/
+function start() {
+  loadContent();
+}
