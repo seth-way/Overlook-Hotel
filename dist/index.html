@@ -58,17 +58,59 @@
           </div>
           <ul class="menu-options">
             <li>
-              <button
-                class="open-menu-btn standard"
-                id="open-rates-btn"
-                aria-label="check hotel rates"
-              >
+              <button class="open-menu-btn standard" id="open-rates-btn" aria-label="check hotel rates">
                 Check Rates
+              </button>
+            </li>
+            <li>
+              <button class="open-menu-btn standard" id="open-other-btn">
+                Other Thing
               </button>
             </li>
           </ul>
         </div>
       </nav>
+      <!-- <section id="menu-drawer" class="minimized" aria-hidden="true"> -->
+      <section id="menu-drawer">
+        <!-- unhidden -->
+        <!-- <div id="login-menu" class="menu hidden" disabled> -->
+        <div id="login-menu" class="menu">
+          <h2>sign in</h2>
+          <form id="user-login">
+            <div class="text-input-group">
+              <label for="user-email">Email:</label>
+              <input type="email" id="user-email" name="email" required />
+            </div>
+            <div class="text-input-group">
+              <label for="user-password">Password:</label>
+              <input
+                type="password"
+                id="user-password"
+                name="password"
+                required
+              />
+            </div>
+            <button class="standard" type="submit" disabled>submit</button>
+          </form>
+          <button class="close" type="submit" aria-label="close login menu">hide</button>
+        </div>
+        <div id="logout-menu" class="menu hidden" disabled>
+          <!-- <div id="logout-menu" class="menu"> unhidden -->
+          <h2>sign out</h2>
+          <form id="user-logout">
+            <button class="standard" type="submit">log out</button>
+          </form>
+          <button class="close" type="submit" aria-label="close logout menu">hide</button>
+        </div>
+        <div id="rates-menu" class="menu hidden" disabled>
+          <h2>check rates</h2>
+          <form id="check-rates"></form>
+        </div>
+        <div id="other-menu" class="menu hidden" disabled>
+          <h2>other stuff</h2>
+          <form id="other stuff?"></form>
+        </div>
+      </section>
       <div id="header-img-container"></div>
     </header>
     <script src="bundle.js"></script>

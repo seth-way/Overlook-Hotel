@@ -3,8 +3,11 @@ import { createCloseBtn } from './uiComponents/buttons';
 /*--- DOM ELEMENTS ---*/
 //- containers -//
 const headerImg = document.getElementById('header-img-container');
+const menuDrawer = document.getElementById('menu-drawer');
+const allMenus = document.querySelectorAll('.menu');
 //- buttons -//
 const openMenuBtns = document.querySelectorAll('.open-menu-btn');
+const userLoginBtns = document.getElementById('user-login-grp');
 /*--- FUNCTIONS ---*/
 export function loadContent() {
   updateMenuButtons();
@@ -28,6 +31,61 @@ function updateHeaderBackgroundImg(idx = 0) {
   }, 10000);
 }
 
+export function toggleLoginBtns() {
+  const { children } = userLoginBtns;
+  const [loginBtn, logoutBtn] = children;
+  if (loginBtn.classList.contains('hidden')) {
+    hideElement(logoutBtn, 'hidden');
+    unhideElement(loginBtn);
+  } else {
+    hideElement(loginBtn, 'hidden');
+    unhideElement(logoutBtn);
+  }
+}
+
+export function toggleMenuBtns(clickedBtn, otherBtn) {
+  const { id } = clickedBtn;
+  if (id.includes('open')) {
+    const menuType = getMenuType(clickedBtn);
+    openMenu(menuType);
+    openMenuBtns.forEach(btn => {
+      if (btn.id !== id) hideElement(btn, 'clear');
+    });
+  } else {
+    closeMenu(clickedBtn);
+  }
+
+  clickedBtn.disabled = 'true';
+  unhideElement(otherBtn);
+
+  setTimeout(() => {
+    hideElement(clickedBtn, 'clear');
+    otherBtn.querySelector('img') &&
+      otherBtn.querySelector('img').classList.remove('clear');
+  }, 500);
+}
+
+function getMenuType(button) {
+  const { id } = button;
+  return id.split('-')[1];
+}
+
+export function openMenu(menuType) {
+  displayMenu(menuType);
+  unhideElement(menuDrawer);
+}
+
+export function closeMenu(closeBtn) {
+  openMenuBtns.forEach(button => unhideElement(button));
+  hideElement(menuDrawer, 'minimized');
+
+  if (closeBtn) {
+    setTimeout(() => {
+      hideElement(closeBtn, 'hidden');
+      closeBtn.querySelector('img').classList.add('clear');
+    }, 500);
+  }
+}
 //- hide / unhide element -//
 export function hideElement(element, ...hiddenClasses) {
   element.classList.add(...hiddenClasses);
@@ -39,4 +97,14 @@ function unhideElement(element) {
   element.classList.remove('clear', 'minimized', 'hidden');
   element.setAttribute('aria-hidden', 'false');
   element.removeAttribute('disabled');
+}
+//- display menu views -//
+export function displayMenu(menuType) {
+  allMenus.forEach(menu => {
+    if (menu.id.includes(menuType)) {
+      unhideElement(menu);
+    } else {
+      hideElement(menu, 'hidden');
+    }
+  });
 }

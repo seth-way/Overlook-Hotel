@@ -1,0 +1,85 @@
+#menu-drawer {
+  background: rgba(227, 232, 235, 0.8);
+  transform-origin: top center;
+  transition: transform 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2.5rem;
+
+  .menu {
+    --default: black;
+    --invalid: red;
+    width: 50%;
+    min-width: 300px;
+    max-width: 1000px;
+    background: white;
+    color: black;
+    padding: 4rem 2rem;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 200;
+      letter-spacing: 0.9rem;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    form {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+      max-width: 500px;
+      padding: 4rem 0;
+
+      .text-input-group {
+        --isValid-color: black;
+        color: var(--isValid-color);
+        border-bottom: 2px solid var(--isValid-color);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        input {
+          height: 1.5rem;
+          width: 100%;
+          border: none;
+          color: var(--isValid-color);
+        }
+      }
+
+      button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        text-transform: uppercase;
+      }
+    }
+
+    button.close {
+      color: black;
+      font-weight: 700;
+      font-size: 0.8em;
+      position: absolute;
+      top: 0;
+      right: 0;
+      text-transform: uppercase;
+      /* width: 8em; */
+      translate: 0 -2em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
