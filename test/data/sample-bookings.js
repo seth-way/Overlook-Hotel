@@ -9,13 +9,13 @@ export const bookings = [
     id: '5fwrgu4i7k55hl7dw',
     userID: 2,
     date: '2022/01/12',
-    roomNumber: 20,
+    roomNumber: 2,
   },
   {
     id: '5fwrgu4i7k55hl7dx',
     userID: 1,
     date: '2022/02/21',
-    roomNumber: 14,
+    roomNumber: 3,
   },
   {
     id: '5fwrgu4i7k55hl7e4',
@@ -27,7 +27,7 @@ export const bookings = [
     id: '5fwrgu4i7k55hl7e5',
     userID: 6,
     date: '2025/01/12',
-    roomNumber: 15,
+    roomNumber: 4,
   },
   {
     id: '5fwrgu4i7k55hl7nt',
