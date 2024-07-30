@@ -1,27 +1,24 @@
 const path = require('path');
 
 module.exports = {
-  "mode": "none",
-  "entry": "./src/scripts.js",
-  "output": {
-    "path": __dirname + '/dist',
-    "filename": "bundle.js"
+  mode: 'none',
+  entry: './src/index.js',
+  output: {
+    path: __dirname + '/dist',
+    filename: 'bundle.js',
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist')
-    }
+      directory: path.join(__dirname, 'dist'),
+    },
   },
-  "devtool": "source-map",
-  "module": {
-    "rules": [
+  devtool: 'source-map',
+  module: {
+    rules: [
       {
         test: /\.(css|scss)$/,
-        use: [
-            { loader: 'style-loader' },
-            { loader: 'css-loader' },
-        ]
-    },
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+      },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
         use: [
@@ -30,11 +27,11 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: 'images/',
-              publicPath: 'images/'
-            }
-          }
-        ]
-      }
-    ]
-  }
+              publicPath: 'images/',
+            },
+          },
+        ],
+      },
+    ],
+  },
 };
