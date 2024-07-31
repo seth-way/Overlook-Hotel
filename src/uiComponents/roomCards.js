@@ -12,46 +12,42 @@ export function createRoomCards(rooms) {
 
 function createRoomCard(room) {
   const roomCard = document.createElement('div');
-  const roomInfo = createRoomTable(room);
-  roomCard.appendChild(roomInfo);
+  roomCard.classList.add('card');
+  const cardHeading = document.createElement('h3');
+  cardHeading.innerText = room.number;
+  roomCard.appendChild(cardHeading);
+  const roomGrid = createRoomInfo(room);
+  roomCard.appendChild(roomGrid);
 
   return roomCard;
 }
-
-function createRoomTable(room) {
-  const { number, roomType, bidet, bedSize, numBeds, costPerNight } = room;
-  const table = document.createElement('table');
-  table.appendChild(createRoomHeader(number));
-  table.appendChild(createTableRow('type:', roomType));
-  table.appendChild(createTableRow('bed size:', bedSize));
-  table.appendChild(createTableRow('# beds:', numBeds));
-  table.appendChild(createTableRow('has bidet:', bidet ? '✓' : '✗'));
-  table.appendChild(createTableRow('cost per night:', `$${costPerNight}`));
-  return table;
+// bidet ? '✓' : '✗'   `$${costPerNight}`
+function createRoomInfo(room) {
+  const { roomType, bidet, bedSize, numBeds, costPerNight } = room;
+  const labels = ['type', 'bed size', '# beds', 'has bidet', 'per night'];
+  const values = [
+    roomType,
+    bedSize,
+    numBeds,
+    bidet ? '✓' : '✗',
+    `$${costPerNight}`,
+  ];
+  const infoContainer = document.createElement('div');
+  infoContainer.classList.add('room-card-info');
+  infoContainer.appendChild(createInfoColumn(...labels));
+  infoContainer.appendChild(createInfoColumn(...values));
+  return infoContainer;
 }
 
-function createRoomHeader(roomNumber) {
-  const row = document.createElement('tr');
-  const header = document.createElement('th');
-  row.appendChild(header);
-
-  header.setAttribute('colspan', '2');
-  header.innerText = roomNumber
-
-  return row;
-}
-
-function createTableRow(descriptor, value) {
-  const row = document.createElement('tr');
-  const label = document.createElement('td');
-  label.innerText = descriptor;
-  row.appendChild(label);
-
-  const tableValue = document.createElement('td');
-  tableValue.innerText = value;
-  row.appendChild(tableValue);
-
-  return row;
+function createInfoColumn(...items) {
+  const infoColumn = document.createElement('ul');
+  items.forEach(item => {
+    const element = document.createElement('li');
+    element.classList.add('room-info-item');
+    element.innerText = item;
+    infoColumn.appendChild(element);
+  });
+  return infoColumn;
 }
 
 function createNoRoomsFoundMessage() {
