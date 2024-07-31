@@ -1,28 +1,65 @@
 import { imageURLs } from './data';
-import { createCloseBtn } from './uiComponents/buttons';
+import { getRoomTypes } from './rooms';
 /*--- DOM ELEMENTS ---*/
 //- containers -//
 const headerImg = document.getElementById('header-img-container');
-const menuDrawer = document.getElementById('menu-drawer');
-const allMenus = document.querySelectorAll('.menu');
+const menuContent = document.getElementById('menu-content');
 //- buttons -//
-const openMenuBtns = document.querySelectorAll('.open-menu-btn');
 const userLoginBtns = document.getElementById('user-login-grp');
-let closeMenuBtns;
+//- inputs -//
+const roomDateInput = document.getElementById('vacancy-date');
+const roomTypeSelector = document.getElementById('vacancy-room-types');
 /*--- FUNCTIONS ---*/
-export function loadContent() {
-  updateMenuButtons();
+export function loadContent(rooms) {
+  createPageContent(rooms);
+  setDefaults();
   updateHeaderBackgroundImg();
 }
-
-function updateMenuButtons() {
-  openMenuBtns.forEach(button => {
-    createCloseBtn(button);
-  });
-
-  closeMenuBtns = document.querySelectorAll('.close-menu-btn');
+//- create dynamic content functions -//
+function createPageContent(rooms) {
+  createSelectorOptions(rooms);
 }
 
+function createSelectorOptions(rooms) {
+  const defaultOption = createOption('', '', true);
+  roomTypeSelector.appendChild(defaultOption);
+
+  const roomTypes = getRoomTypes(rooms);
+
+  Object.keys(roomTypes).forEach(category => {
+    const group = createOptionGrp(category);
+    roomTypeSelector.appendChild(group);
+    roomTypes[category].forEach(type => {
+      const option = createOption(type);
+      group.appendChild(option);
+    });
+  });
+}
+
+function createOptionGrp(label) {
+  const group = document.createElement('optgroup');
+  group.label = label;
+  return group;
+}
+
+function createOption(value, text, isSelected) {
+  text = text || value;
+  const option = document.createElement('option');
+  option.value = value;
+  option.textContent = text;
+  if (isSelected) option.selected = true;
+  return option;
+}
+//- create input defaults functions -//
+function setDefaults() {
+  const currentDate = new Date();
+  currentDate.setMinutes(
+    currentDate.getMinutes() - currentDate.getTimezoneOffset()
+  );
+  
+  roomDateInput.value = currentDate.toJSON().slice(0, 10);
+}
+//- animation functions -//
 function updateHeaderBackgroundImg(idx = 0) {
   idx = idx % imageURLs.length;
   const imgUrl = `url('${imageURLs[idx]}')`;
@@ -44,76 +81,19 @@ export function toggleLoginBtns() {
     unhideElement(logoutBtn);
   }
 }
-
-export function toggleMenuBtns(clickedBtn, otherBtn) {
-  const { id } = clickedBtn;
-  if (id.includes('open')) {
-    const menuType = getMenuType(clickedBtn);
-    openMenu(menuType);
-    openMenuBtns.forEach(btn => {
-      if (btn.id !== id) hideElement(btn, 'clear');
-    });
-  } else {
-    closeMenu(clickedBtn);
-  }
-
-  clickedBtn.disabled = 'true';
-  unhideElement(otherBtn);
-
-  setTimeout(() => {
-    hideElement(clickedBtn, 'clear');
-    otherBtn.querySelector('img') &&
-      otherBtn.querySelector('img').classList.remove('clear');
-  }, 500);
-}
-
-export function hideCloseMenuBtns() {
-  closeMenuBtns.forEach(button => {
-    hideElement(button, 'hidden');
-    button.querySelector('img').classList.add('clear');
-  });
-}
-
-function getMenuType(button) {
-  const { id } = button;
-  return id.split('-')[1];
-}
 //- hide / unhide element -//
 export function hideElement(element, ...hiddenClasses) {
   element.classList.add(...hiddenClasses);
-  element.setAttribute('aria-hidden', 'true');
+  element.ariaHidden = 'true';
   element.disabled = 'true';
 }
 
-function unhideElement(element) {
+export function unhideElement(element) {
   element.classList.remove('clear', 'minimized', 'hidden');
-  element.setAttribute('aria-hidden', 'false');
+  element.ariaHidden = 'false';
   element.removeAttribute('disabled');
 }
-//- toggle menu drawer -//
-export function openMenu(menuType) {
-  displayMenu(menuType);
-  unhideElement(menuDrawer);
-}
-
-export function closeMenu(closeBtn) {
-  openMenuBtns.forEach(button => unhideElement(button));
-  hideElement(menuDrawer, 'minimized');
-
-  if (closeBtn) {
-    setTimeout(() => {
-      hideElement(closeBtn, 'hidden');
-      closeBtn.querySelector('img').classList.add('clear');
-    }, 500);
-  }
-}
-//- display menu views -//
-export function displayMenu(menuType) {
-  allMenus.forEach(menu => {
-    if (menu.id.includes(menuType)) {
-      unhideElement(menu);
-    } else {
-      hideElement(menu, 'hidden');
-    }
-  });
+//- show content functions -//
+export function showRoomsByDate() {
+  menuContent.innerHTML = '<p>ROOMS BY DATE</p>';
 }

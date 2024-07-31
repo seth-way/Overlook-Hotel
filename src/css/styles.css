@@ -19,7 +19,7 @@ h2 {
   text-align: center;
 }
 
-.hidden {
+.hidden, .login-required {
   display: none !important;
 }
 
