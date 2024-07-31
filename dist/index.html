@@ -84,10 +84,7 @@
           </ul>
         </div>
       </nav>
-      <!-- <section id="menu-drawer" class="minimized" aria-hidden="true"> -->
-      <section id="menu-drawer">
-        <!-- unhidden -->
-        <!-- <div id="login-menu" class="menu hidden" disabled> -->
+      <section id="menu-drawer" class="minimized" aria-hidden="true">
         <div id="menu">
           <header>
             <h2>sign in</h2>
@@ -146,7 +143,43 @@
                 clear filters
               </button>
             </form>
-            <form id="bookings-form" class="hidden"></form>
+            <form id="bookings-form" class="hidden">
+              <fieldset>
+                <div class="radio-input-group">
+                  <legend>Show Bookings:</legend>
+                  <label for="upcoming-bookings-filter">upcoming</label>
+                  <input
+                    id="upcoming-bookings-filter"
+                    type="radio"
+                    name="timeframe"
+                    value="upcoming"
+                  />
+                  <label for="past-bookings-filter">past</label>
+                  <input
+                    id="past-bookings-filter"
+                    type="radio"
+                    name="timeframe"
+                    value="past"
+                  />
+                  <label for="all-bookings-filter">all</label>
+                  <input
+                    id="all-bookings-filter"
+                    type="radio"
+                    name="timeframe"
+                    value="all"
+                    checked
+                  />
+                </div>
+              </fieldset>
+              <div class="cost-summary-group">
+                <span><b>Total Spent:</b> upcoming </span
+                ><span id="spent-upcoming" class="cost"></span
+                ><span> <em>|</em> past </span
+                ><span id="spent-past" class="cost"></span
+                ><span> <em>|</em> total </span
+                ><span id="spent-total" class="cost"></span>
+              </div>
+            </form>
             <button
               id="alt-close-btn"
               class="close hidden"

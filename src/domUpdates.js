@@ -7,10 +7,12 @@ const menuContent = document.getElementById('menu-content');
 //- buttons -//
 const userLoginBtns = document.getElementById('user-login-grp');
 //- inputs -//
+const roomDateInput = document.getElementById('vacancy-date');
 const roomTypeSelector = document.getElementById('vacancy-room-types');
 /*--- FUNCTIONS ---*/
 export function loadContent(rooms) {
   createPageContent(rooms);
+  setDefaults();
   updateHeaderBackgroundImg();
 }
 //- create dynamic content functions -//
@@ -48,7 +50,16 @@ function createOption(value, text, isSelected) {
   if (isSelected) option.selected = true;
   return option;
 }
-
+//- create input defaults functions -//
+function setDefaults() {
+  const currentDate = new Date();
+  currentDate.setMinutes(
+    currentDate.getMinutes() - currentDate.getTimezoneOffset()
+  );
+  
+  roomDateInput.value = currentDate.toJSON().slice(0, 10);
+}
+//- animation functions -//
 function updateHeaderBackgroundImg(idx = 0) {
   idx = idx % imageURLs.length;
   const imgUrl = `url('${imageURLs[idx]}')`;
