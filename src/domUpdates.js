@@ -1,5 +1,6 @@
 import { imageURLs } from './data';
 import { getRoomTypes } from './rooms';
+import { createRoomCards } from './uiComponents/roomCards';
 /*--- DOM ELEMENTS ---*/
 //- containers -//
 const headerImg = document.getElementById('header-img-container');
@@ -56,7 +57,7 @@ function setDefaults() {
   currentDate.setMinutes(
     currentDate.getMinutes() - currentDate.getTimezoneOffset()
   );
-  
+
   roomDateInput.value = currentDate.toJSON().slice(0, 10);
 }
 //- animation functions -//
@@ -94,6 +95,6 @@ export function unhideElement(element) {
   element.removeAttribute('disabled');
 }
 //- show content functions -//
-export function showRoomsByDate() {
-  menuContent.innerHTML = '<p>ROOMS BY DATE</p>';
+export function showRooms(rooms) {
+  menuContent.appendChild(createRoomCards(rooms));
 }

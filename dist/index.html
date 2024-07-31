@@ -58,12 +58,6 @@
           </div>
           <ul class="menu-options">
             <li>
-              <!-- <button
-                class="open-menu-btn login-required standard"
-                id="open-bookings-btn"
-                aria-label="show my bookings"
-                disabled
-              > -->
               <button
                 class="open-menu-btn standard"
                 id="open-bookings-btn"
@@ -84,10 +78,13 @@
           </ul>
         </div>
       </nav>
-      <section id="menu-drawer" class="minimized" aria-hidden="true">
+      <!-- auto show dates menu -->
+      <!-- <section id="menu-drawer" class="minimized" aria-hidden="true"> -->
+      <section id="menu-drawer">
         <div id="menu">
           <header>
-            <h2>sign in</h2>
+            <!-- <h2>sign in</h2> -->
+            <h2>check dates</h2>
             <form id="login-form" class="hidden">
               <div class="text-input-group">
                 <label for="login-username">Username:</label>
@@ -116,7 +113,8 @@
                 submit
               </button>
             </form>
-            <form id="check-dates-form" class="hidden">
+            <form id="check-dates-form">
+              <!-- <form id="check-dates-form" class="hidden"> -->
               <div class="date-input-group">
                 <label for="vacancy-date">Date:</label>
                 <input type="date" id="vacancy-date" name="date" required />
@@ -126,7 +124,7 @@
                 <select id="vacancy-room-types" name="room types"></select>
               </div>
               <div class="selector-group">
-                <label for="vacancy-bed-sizes">Bed Type:</label>
+                <label for="vacancy-bed-sizes">Bed Size:</label>
                 <select id="vacancy-bed-sizes" name="bed sizes">
                   <option value="" selected></option>
                   <option value="king">king</option>
@@ -138,7 +136,8 @@
               <button
                 class="standard"
                 id="clear-filters-btn"
-                aria-label="check a date"
+                type="reset"
+                aria-label="clear room filters"
               >
                 clear filters
               </button>
