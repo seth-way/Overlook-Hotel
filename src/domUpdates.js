@@ -1,12 +1,52 @@
 import { imageURLs } from './data';
+import { getRoomTypes } from './rooms';
 /*--- DOM ELEMENTS ---*/
 //- containers -//
 const headerImg = document.getElementById('header-img-container');
+const menuContent = document.getElementById('menu-content');
 //- buttons -//
 const userLoginBtns = document.getElementById('user-login-grp');
+//- inputs -//
+const roomTypeSelector = document.getElementById('vacancy-room-types');
 /*--- FUNCTIONS ---*/
-export function loadContent() {
+export function loadContent(rooms) {
+  createPageContent(rooms);
   updateHeaderBackgroundImg();
+}
+//- create dynamic content functions -//
+function createPageContent(rooms) {
+  createSelectorOptions(rooms);
+}
+
+function createSelectorOptions(rooms) {
+  const defaultOption = createOption('', '', true);
+  roomTypeSelector.appendChild(defaultOption);
+
+  const roomTypes = getRoomTypes(rooms);
+
+  Object.keys(roomTypes).forEach(category => {
+    const group = createOptionGrp(category);
+    roomTypeSelector.appendChild(group);
+    roomTypes[category].forEach(type => {
+      const option = createOption(type);
+      group.appendChild(option);
+    });
+  });
+}
+
+function createOptionGrp(label) {
+  const group = document.createElement('optgroup');
+  group.label = label;
+  return group;
+}
+
+function createOption(value, text, isSelected) {
+  text = text || value;
+  const option = document.createElement('option');
+  option.value = value;
+  option.textContent = text;
+  if (isSelected) option.selected = true;
+  return option;
 }
 
 function updateHeaderBackgroundImg(idx = 0) {
@@ -41,4 +81,8 @@ export function unhideElement(element) {
   element.classList.remove('clear', 'minimized', 'hidden');
   element.ariaHidden = 'false';
   element.removeAttribute('disabled');
+}
+//- show content functions -//
+export function showRoomsByDate() {
+  menuContent.innerHTML = '<p>ROOMS BY DATE</p>';
 }

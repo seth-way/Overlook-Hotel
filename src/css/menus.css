@@ -7,21 +7,28 @@
   align-items: center;
   justify-content: flex-start;
   padding: 2.5rem;
+}
 
-  .menu {
-    --default: black;
-    --invalid: red;
-    width: 50%;
-    min-width: 300px;
-    max-width: 1000px;
-    background: white;
-    color: black;
-    padding: 4rem 2rem;
-    border-radius: 2px;
+#menu {
+  --default: black;
+  --invalid: red;
+  min-width: max(300px, 50%);
+  max-width: 1000px;
+  background: white;
+  color: black;
+  padding: 1rem 1rem;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  header {
+    position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
 
     h2 {
       font-size: 2rem;
@@ -29,57 +36,80 @@
       letter-spacing: 0.9rem;
       line-height: 1.4;
       text-align: center;
+      margin: 0;
     }
+  }
 
-    form {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
+  form {
+    position: relative;
+    display: flex;
+    align-content: flex-end;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+
+    [class$='group'] {
+      --isValid-color: black;
+      color: var(--isValid-color);
+      border-bottom: 2px solid var(--isValid-color);
       width: 100%;
-      max-width: 500px;
-      padding: 4rem 0;
+      max-width: 30rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 0.25rem;
 
-      .text-input-group {
-        --isValid-color: black;
-        color: var(--isValid-color);
-        border-bottom: 2px solid var(--isValid-color);
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
+      & > * {
+        margin: 0.25rem;
+      }
+      
+      label {
+        text-wrap: nowrap;
 
-        input {
-          height: 1.5rem;
-          width: 100%;
-          border: none;
-          color: var(--isValid-color);
-        }
       }
 
-      button {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        text-transform: uppercase;
+      input {
+        height: 1.5rem;
+        width: 100%;
+        border: none;
+        color: var(--isValid-color);
+      }
+
+      select {
+        border: none;
       }
     }
 
-    button.close {
-      color: black;
-      font-weight: 700;
-      font-size: 0.8em;
-      position: absolute;
-      top: 0;
-      right: 0;
+    button {
       text-transform: uppercase;
-      /* width: 8em; */
-      translate: 0 -2em;
+      text-wrap: nowrap;
+    }
 
-      &:hover {
-        cursor: pointer;
-      }
+    #login-submit-btn {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  #login-form {
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 0;
+  }
+
+  button.close {
+    color: black;
+    font-weight: 700;
+    font-size: 0.8em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-transform: uppercase;
+    translate: 0 -3.5em;
+
+    &:hover {
+      cursor: pointer;
     }
   }
 }
