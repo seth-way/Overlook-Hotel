@@ -40,6 +40,7 @@
         display: flex;
         gap: 0.5rem;
         padding: 0.5rem;
+
         ul {
           display: flex;
           flex-direction: column;
@@ -48,13 +49,16 @@
           padding: 0;
           text-align: right;
         }
+
         ul:first-child {
           border-right: 2px solid black;
           padding-right: 0.25rem;
         }
+
         ul:last-child {
           text-align: left;
         }
+
         li {
           text-wrap: nowrap;
           text-transform: capitalize;

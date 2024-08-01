@@ -21,7 +21,7 @@ function createRoomCard(room) {
 
   return roomCard;
 }
-// bidet ? '✓' : '✗'   `$${costPerNight}`
+
 function createRoomInfo(room) {
   const { roomType, bidet, bedSize, numBeds, costPerNight } = room;
   const labels = ['type', 'bed size', '# beds', 'has bidet', 'per night'];
