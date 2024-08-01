@@ -91,7 +91,13 @@ export function unhideElement(element) {
   element.removeAttribute('disabled');
 }
 //- show content functions -//
-export function showRooms(rooms) {
+export function showMenuContent(type, data, isAdmin) {
+  if (type === 'dates') {
+    showRooms(data)
+  }
+}
+
+function showRooms(rooms) {
   menuContent.innerHTML = '';
   const heading = document.createElement('h3');
   heading.innerText = 'Available Rooms';

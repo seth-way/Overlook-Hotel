@@ -3,6 +3,7 @@ import { hideElement, unhideElement, showRoomsByDate } from '../domUpdates';
 
 export const createMenu = () => {
   //- containers -//
+  const navBar = document.querySelector('nav');
   const menuDrawer = document.getElementById('menu-drawer');
   const menuTitle = menuDrawer.querySelector('h2');
   const menuForms = menuDrawer.querySelectorAll('form');
@@ -21,7 +22,6 @@ export const createMenu = () => {
     const { id } = clickedBtn;
     if (id.includes('open')) {
       const menuType = getMenuType(clickedBtn);
-      console.log('menu type:', menuType);
       openMenu(menuType);
       openMenuBtns.forEach(btn => {
         if (btn.id !== id) hideElement(btn, 'clear');
@@ -97,11 +97,17 @@ export const createMenu = () => {
     menuTitle.innerText = isAdminAccount ? 'bookings' : 'my bookings';
   }
 
+  function adjustMenuMaxHeight() {
+    const navBarHeight = Math.floor(navBar.offsetHeight);
+    menuDrawer.style.maxHeight = `calc(100vh - ${navBarHeight}px)`
+  }
+
   return {
     toggleMenuBtns,
     hideCloseMenuBtns,
     openMenu,
     closeMenu,
     updateMenu,
+    adjustMenuMaxHeight
   };
 };

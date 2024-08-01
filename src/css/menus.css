@@ -7,11 +7,11 @@
   align-items: center;
   justify-content: flex-start;
   padding: 2.5rem;
+  overflow: hidden;
 }
 
 #menu {
-  --default: black;
-  --invalid: red;
+
   min-width: max(300px, 50%);
   max-width: 1000px;
   background: white;
@@ -22,6 +22,8 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  max-height: 100%;
+  overflow: hidden;
 
   header {
     position: relative;
@@ -49,6 +51,8 @@
     width: 100%;
 
     [class$='group'] {
+      --default: black;
+      --invalid: red;
       --isValid-color: black;
       color: var(--isValid-color);
       border-bottom: 2px solid var(--isValid-color);
@@ -141,5 +145,6 @@
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
+    overflow-y: scroll;
   }
 }

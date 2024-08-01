@@ -83,9 +83,8 @@
       <section id="menu-drawer">
         <div id="menu">
           <header>
-            <!-- <h2>sign in</h2> -->
-            <h2>check dates</h2>
-            <form id="login-form" class="hidden">
+            <h2>sign in</h2>
+            <form id="login-form">
               <div class="text-input-group">
                 <label for="login-username">Username:</label>
                 <input
@@ -113,8 +112,7 @@
                 submit
               </button>
             </form>
-            <form id="check-dates-form">
-              <!-- <form id="check-dates-form" class="hidden"> -->
+            <form id="check-dates-form" class="hidden" aria-hidden="true">
               <div class="date-input-group">
                 <label for="vacancy-date">Date:</label>
                 <input type="date" id="vacancy-date" name="date" required />
@@ -142,7 +140,7 @@
                 clear filters
               </button>
             </form>
-            <form id="bookings-form" class="hidden">
+            <form id="bookings-form" class="hidden" aria-hidden="true">
               <fieldset>
                 <div class="radio-input-group">
                   <legend>Show Bookings:</legend>
@@ -184,6 +182,7 @@
               class="close hidden"
               type="submit"
               aria-label="close menu"
+              aria-hidden="true"
             >
               hide
             </button>
