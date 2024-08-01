@@ -93,5 +93,8 @@ export function unhideElement(element) {
 //- show content functions -//
 export function showRooms(rooms) {
   menuContent.innerHTML = '';
+  const heading = document.createElement('h3');
+  heading.innerText = 'Available Rooms';
+  menuContent.appendChild(heading);
   menuContent.appendChild(createRoomCards(rooms));
 }

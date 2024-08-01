@@ -13,7 +13,7 @@ export function createRoomCards(rooms) {
 function createRoomCard(room) {
   const roomCard = document.createElement('div');
   roomCard.classList.add('card');
-  const cardHeading = document.createElement('h3');
+  const cardHeading = document.createElement('h4');
   cardHeading.innerText = room.number;
   roomCard.appendChild(cardHeading);
   const roomGrid = createRoomInfo(room);
