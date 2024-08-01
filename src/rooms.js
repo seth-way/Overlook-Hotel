@@ -23,3 +23,27 @@ export function getRoomTypes(rooms) {
     return acc;
   }, roomCategories);
 }
+//- room filtering functions -//
+export function filterRooms(filters, rooms, bookings) {
+  const { date, roomType, bedSize } = filters;
+  const availableRooms = getAvailableRooms(new Date(date), rooms, bookings);
+  return availableRooms.filter(
+    room => room.roomType.includes(roomType) && room.bedSize.includes(bedSize)
+  );
+}
+
+function getFilterKeyFromInputID(id) {
+  const filterKeys = {
+    'vacancy-date': 'date',
+    'vacancy-room-types': 'roomType',
+    'vacancy-bed-sizes': 'bedSize',
+  };
+
+  return filterKeys[id];
+}
+
+export function updateRoomFilterOptions(id, value, filterOptions) {
+  const key = getFilterKeyFromInputID(id);
+  filterOptions[key] = value;
+  return filterOptions;
+}

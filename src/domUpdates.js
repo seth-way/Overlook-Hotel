@@ -1,5 +1,7 @@
 import { imageURLs } from './data';
 import { getRoomTypes } from './rooms';
+import { createRoomCards } from './uiComponents/roomCards';
+import { getCurrentDate } from './scripts';
 /*--- DOM ELEMENTS ---*/
 //- containers -//
 const headerImg = document.getElementById('header-img-container');
@@ -52,12 +54,7 @@ function createOption(value, text, isSelected) {
 }
 //- create input defaults functions -//
 function setDefaults() {
-  const currentDate = new Date();
-  currentDate.setMinutes(
-    currentDate.getMinutes() - currentDate.getTimezoneOffset()
-  );
-  
-  roomDateInput.value = currentDate.toJSON().slice(0, 10);
+  roomDateInput.value = getCurrentDate();
 }
 //- animation functions -//
 function updateHeaderBackgroundImg(idx = 0) {
@@ -94,6 +91,10 @@ export function unhideElement(element) {
   element.removeAttribute('disabled');
 }
 //- show content functions -//
-export function showRoomsByDate() {
-  menuContent.innerHTML = '<p>ROOMS BY DATE</p>';
+export function showRooms(rooms) {
+  menuContent.innerHTML = '';
+  const heading = document.createElement('h3');
+  heading.innerText = 'Available Rooms';
+  menuContent.appendChild(heading);
+  menuContent.appendChild(createRoomCards(rooms));
 }
