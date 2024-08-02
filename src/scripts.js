@@ -122,6 +122,7 @@ loginForm.oninput = e => {
 
 loginForm.onsubmit = e => {
   e.preventDefault();
+  console.log('submitttttttted');
   const inputs = loginForm.querySelectorAll('input');
   const username = inputs[0].value;
   const password = inputs[1].value;
