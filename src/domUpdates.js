@@ -126,6 +126,7 @@ export function showMenuContent(type, data, isAdmin) {
     menuForms.forEach(form => hideElement(form, 'hidden'));
     const menuForm = [...menuForms].find(form => form.id.includes(type));
     unhideElement(menuForm);
+    menuContent.innerHTML = '';
     showMenuType[type](data, isAdmin);
   }
   showMenuType[type](data, isAdmin);
@@ -137,13 +138,12 @@ function showLoginMenu() {
 }
 
 function showDatesMenu(rooms, isAdmin) {
-  menuContent.innerHTML = '';
   const heading = document.createElement('h3');
   heading.innerText = 'Available Rooms';
   menuContent.appendChild(heading);
   menuContent.appendChild(createRoomCards(rooms));
 }
 
-function showBookingsMenu(isAdminAccount) {
-  menuTitle.innerText = isAdminAccount ? 'bookings' : 'my bookings';
+function showBookingsMenu(bookings, isAdmin) {
+  menuTitle.innerText = isAdmin ? 'bookings' : 'my bookings';
 }

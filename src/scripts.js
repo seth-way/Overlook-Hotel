@@ -2,6 +2,7 @@ import './css/styles.css';
 import './images/upTriangle.svg';
 
 import { filterRooms, updateRoomFilterOptions } from './rooms';
+import { getBookingsByCustomer, groupBookingsPastVsUpcoming } from './bookings';
 import {
   loadContent,
   hideElement,
@@ -17,9 +18,10 @@ import { getResource } from './apiCalls';
 /*--- GLOBALS ---*/
 var user = {};
 var allRooms = [];
-var allBookings = [];
 var filteredRooms = [];
-var filteredBookings = [];
+var allBookings = [];
+var userBookings = {};
+
 var roomFilters = { date: getCurrentDate(), roomType: '', bedSize: '' };
 
 //- menu functions -//
@@ -50,16 +52,23 @@ loginBtn.onclick = () => {
 menuBtnGroups.forEach(
   buttonGrp =>
     (buttonGrp.onclick = e => {
+      const { isAdmin } = user;
       const clickedBtn = e.target.closest('button');
-      const otherBtn = getComplimentaryBtn(clickedBtn);
-      const { id } = clickedBtn;
-      if (id.includes('open')) {
-        const menuType = id.includes('dates') ? 'dates' : 'bookings';
-        const data = menuType === 'dates' ? allRooms : allBookings;
-        const { isAdmin } = user;
-        openMenu(menuType, data, isAdmin);
-      } else closeMenu(clickedBtn);
-      toggleMenuBtns(clickedBtn, otherBtn);
+      if (clickedBtn) {
+        const otherBtn = getComplimentaryBtn(clickedBtn);
+        const { id } = clickedBtn;
+        if (id.includes('open')) {
+          const menuType = id.includes('dates') ? 'dates' : 'bookings';
+          const data =
+            menuType === 'dates'
+              ? allRooms
+              : isAdmin
+              ? allBookings
+              : userBookings;
+          openMenu(menuType, data, isAdmin);
+        } else closeMenu(clickedBtn);
+        toggleMenuBtns(clickedBtn, otherBtn);
+      }
     })
 );
 
@@ -124,9 +133,11 @@ loginForm.onsubmit = e => {
     user.name = 'Management';
     user.isAdmin = true;
   }
-
-  if (user.id) {
-    showMenuContent();
+  const { id, isAdmin } = user;
+  if (id) {
+    const allUserBookings = getBookingsByCustomer(id, allBookings);
+    userBookings = groupBookingsPastVsUpcoming(allUserBookings);
+    openMenu('bookings', isAdmin ? allBookings : userBookings, isAdmin);
   }
 };
 

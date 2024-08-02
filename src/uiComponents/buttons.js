@@ -1,6 +1,4 @@
-import {
-  hideElement,
-} from '../domUpdates';
+import { hideElement } from '../domUpdates';
 /*--- FUNCTIONS ---*/
 //- create button functions -//
 export function createCloseBtn(openBtn) {
