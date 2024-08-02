@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
+  width: 100%;
+  overflow: hidden;
 
   h3 {
     margin: 0;
@@ -16,6 +18,10 @@
 
   .room-cards-container {
     display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow-y: auto;
     gap: 2rem;
     padding: 1rem;
 
@@ -40,6 +46,7 @@
         display: flex;
         gap: 0.5rem;
         padding: 0.5rem;
+
         ul {
           display: flex;
           flex-direction: column;
@@ -48,19 +55,54 @@
           padding: 0;
           text-align: right;
         }
+
         ul:first-child {
           border-right: 2px solid black;
           padding-right: 0.25rem;
         }
+
         ul:last-child {
           text-align: left;
         }
+
         li {
           text-wrap: nowrap;
           text-transform: capitalize;
           list-style-type: none;
           margin: 0.25rem;
         }
+      }
+    }
+  }
+
+  #bookings-lists {
+    min-width: 80%;
+    overflow-y: auto;
+
+    h4{
+      text-transform: capitalize;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    li > span {
+      display: flex;
+      gap: 1rem;
+
+      .booking-date {
+        width: 10rem;
+      }
+
+      .booking-room {
+        width: 6rem;
+      }
+
+      .booking-price {
+        width: 7rem
       }
     }
   }

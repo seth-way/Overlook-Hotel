@@ -1,4 +1,5 @@
 import { getBookingsByDate } from './bookings';
+import { convertToCurrency } from './utility';
 
 export function getRoomByNumber(roomNumber, rooms) {
   return rooms.find(room => room.number === roomNumber);
@@ -46,4 +47,9 @@ export function updateRoomFilterOptions(id, value, filterOptions) {
   const key = getFilterKeyFromInputID(id);
   filterOptions[key] = value;
   return filterOptions;
+}
+
+export function getRoomPrice(roomNumber, rooms) {
+  const room = getRoomByNumber(roomNumber, rooms);
+  return convertToCurrency(room.costPerNight);
 }

@@ -9,6 +9,7 @@ body > header {
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
+  overflow: hidden;
 
   nav {
     top: 0;
