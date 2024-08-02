@@ -11,7 +11,6 @@
 }
 
 #menu {
-
   min-width: max(300px, 50%);
   max-width: 1000px;
   background: white;
@@ -137,13 +136,5 @@
     &:hover {
       cursor: pointer;
     }
-  }
-
-  .room-cards-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    overflow-y: scroll;
   }
 }

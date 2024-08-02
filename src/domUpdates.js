@@ -1,7 +1,7 @@
 import { imageURLs } from './data';
 import { getRoomTypes } from './rooms';
 import { createRoomCards } from './uiComponents/roomCards';
-import { getCurrentDate } from './scripts';
+import { getCurrentDate } from './utility';
 /*--- DOM ELEMENTS ---*/
 //- containers -//
 const headerImg = document.getElementById('header-img-container');
@@ -133,7 +133,6 @@ export function showMenuContent(type, data, isAdmin) {
     menuContent.innerHTML = '';
     showMenuType[type](data, isAdmin);
   }
-  showMenuType[type](data, isAdmin);
 }
 
 function showLoginMenu() {
@@ -149,14 +148,62 @@ function showDatesMenu(rooms, isAdmin) {
 }
 
 function showBookingsMenu(bookings, isAdmin) {
+  const { selection, totals } = bookings;
   menuTitle.innerText = isAdmin ? 'bookings' : 'my bookings';
   if (isAdmin) {
     console.log('is admin');
   } else {
-    const { totals } = bookings;
     const { past, upcoming, total } = totals;
     spentUpcoming.innerText = upcoming;
     spentPast.innerText = past;
     spentTotal.innerText = total;
   }
+  const bookingsContainer = document.createElement('section');
+  bookingsContainer.id = 'bookings-lists';
+  menuContent.appendChild(bookingsContainer);
+
+  bookingsContainer.appendChild(
+    createBookingsList(bookings.upcoming, selection, 'upcoming')
+  );
+  bookingsContainer.appendChild(
+    createBookingsList(bookings.past, selection, 'past')
+  );
+}
+
+function createBookingsList(bookings, selection, type) {
+  var bookingsList = '';
+  if (selection === 'all' || selection === 'type') {
+    bookingsList = document.createElement('section');
+
+    const heading = document.createElement('h4');
+    heading.innerText = type + ':';
+    bookingsList.appendChild(heading);
+
+    const list = document.createElement('ul');
+    bookingsList.appendChild(list);
+
+    if (bookings.length) {
+      bookings.forEach(booking => {
+        const item = document.createElement('li');
+        item.innerHTML = createBookingDetails(booking);
+        list.appendChild(item);
+      });
+    } else {
+      const message = document.createElement('li');
+      message.innerText = `No ${type} bookings.`;
+      list.appendChild(message);
+    }
+  }
+
+  return bookingsList;
+}
+
+function createBookingDetails(booking) {
+  const { id, userID, date, roomNumber, price } = booking;
+  const elID = `"booking-${id}-${userID}"`;
+  const elDate = `<span class="booking-date">Date: <b>${date}</b></span>`;
+  const elRoom = `<span class="booking-room">Room: <b>${roomNumber}</b></span>`;
+  const elPrice = `<span class="booking-price">Price: <b>${price}</b></span>`;
+  const element = `<span id=${elID}>${elDate}${elRoom}${elPrice}</span>`;
+  return element;
 }

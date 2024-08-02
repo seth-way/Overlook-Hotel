@@ -14,13 +14,13 @@ import {
 import { getComplimentaryBtn } from './uiComponents/buttons';
 import { createMenu } from './uiComponents/menu';
 import { getResource } from './apiCalls';
-
+import { getCurrentDate } from './utility';
 /*--- GLOBALS ---*/
 var user = {};
 var allRooms = [];
 var filteredRooms = [];
 var allBookings = [];
-var userBookings = {};
+var userBookings = { selection: 'all' };
 
 var roomFilters = { date: getCurrentDate(), roomType: '', bedSize: '' };
 
@@ -135,13 +135,26 @@ loginForm.onsubmit = e => {
   }
   const { id, isAdmin } = user;
   if (id) {
-    userBookings = updateUserBookings(id, allBookings, allRooms)
-    openMenu('bookings', isAdmin ? allBookings : userBookings, isAdmin);
+    const updates = updateUserBookings(id, allBookings, allRooms, isAdmin);
+    userBookings = { ...userBookings, ...updates };
+    console.log('user bookings', userBookings);
+    openMenu('bookings', userBookings, isAdmin);
   }
 };
-
 /*--- FUNCTIONS ---*/
 function start() {
+  adjustMenuMaxHeight();
+  Promise.all([getResource('rooms'), getResource('bookings')])
+    .then(data => {
+      updateGlobalVariables(...data);
+      //- remove next 2 lines after working on bookings menu -//
+    const updates = updateUserBookings(50, allBookings, allRooms);
+    userBookings = { ...userBookings, ...updates };
+    console.log('user bookings', userBookings);
+    openMenu('bookings', userBookings);
+      //- remove above lines after completing bookings menu -//
+    })
+    .catch(err => console.log(err));
   // auto login customer 50.... remove after development.
   getResource('customers', 50)
     .then(customer => {
@@ -149,12 +162,6 @@ function start() {
     })
     .catch(err => console.alert(err));
   // end of section to remove after development.
-  adjustMenuMaxHeight();
-  Promise.all([getResource('rooms'), getResource('bookings')])
-    .then(data => {
-      updateGlobalVariables(...data);
-    })
-    .catch(err => console.log(err));
 }
 
 function updateGlobalVariables({ rooms }, { bookings }) {
@@ -162,17 +169,4 @@ function updateGlobalVariables({ rooms }, { bookings }) {
   allBookings = [...bookings];
   filteredRooms = filterRooms(roomFilters, allRooms, allBookings);
   loadContent(allRooms);
-}
-//- helper functions -//
-export function getCurrentDate() {
-  const currentDate = new Date();
-  currentDate.setMinutes(
-    currentDate.getMinutes() - currentDate.getTimezoneOffset()
-  );
-
-  return currentDate.toJSON().slice(0, 10);
-}
-
-export function convertToCurrency(number) {
-  return number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 }
