@@ -2,7 +2,7 @@ import './css/styles.css';
 import './images/upTriangle.svg';
 
 import { filterRooms, updateRoomFilterOptions } from './rooms';
-import { getBookingsByCustomer, groupBookingsPastVsUpcoming } from './bookings';
+import { updateUserBookings } from './bookings';
 import {
   loadContent,
   hideElement,
@@ -135,8 +135,7 @@ loginForm.onsubmit = e => {
   }
   const { id, isAdmin } = user;
   if (id) {
-    const allUserBookings = getBookingsByCustomer(id, allBookings);
-    userBookings = groupBookingsPastVsUpcoming(allUserBookings);
+    userBookings = updateUserBookings(id, allBookings, allRooms)
     openMenu('bookings', isAdmin ? allBookings : userBookings, isAdmin);
   }
 };
@@ -164,7 +163,7 @@ function updateGlobalVariables({ rooms }, { bookings }) {
   filteredRooms = filterRooms(roomFilters, allRooms, allBookings);
   loadContent(allRooms);
 }
-
+//- helper functions -//
 export function getCurrentDate() {
   const currentDate = new Date();
   currentDate.setMinutes(
@@ -172,4 +171,8 @@ export function getCurrentDate() {
   );
 
   return currentDate.toJSON().slice(0, 10);
+}
+
+export function convertToCurrency(number) {
+  return number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 }

@@ -15,6 +15,10 @@ const altCloseBtn = document.getElementById('alt-close-btn');
 //- inputs -//
 const roomDateInput = document.getElementById('vacancy-date');
 const roomTypeSelector = document.getElementById('vacancy-room-types');
+//- bookings totals -//
+const spentUpcoming = document.getElementById('spent-upcoming');
+const spentPast = document.getElementById('spent-past');
+const spentTotal = document.getElementById('spent-total');
 //- other -//
 const menuTitle = menuDrawer.querySelector('h2');
 /*--- FUNCTIONS ---*/
@@ -146,4 +150,13 @@ function showDatesMenu(rooms, isAdmin) {
 
 function showBookingsMenu(bookings, isAdmin) {
   menuTitle.innerText = isAdmin ? 'bookings' : 'my bookings';
+  if (isAdmin) {
+    console.log('is admin');
+  } else {
+    const { totals } = bookings;
+    const { past, upcoming, total } = totals;
+    spentUpcoming.innerText = upcoming;
+    spentPast.innerText = past;
+    spentTotal.innerText = total;
+  }
 }
