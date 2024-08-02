@@ -96,7 +96,7 @@ export function hideElement(element, ...hiddenClasses) {
 }
 
 export function unhideElement(element) {
-  element.classList.remove('clear', 'minimized', 'hidden');
+  element.classList.remove('clear', 'minimized', 'hidden', 'login-required');
   element.ariaHidden = 'false';
   element.removeAttribute('disabled');
 }
@@ -141,6 +141,7 @@ function showLoginMenu() {
 }
 
 function showDatesMenu(rooms, isAdmin) {
+  menuTitle.innerText = 'check rooms by date';
   const heading = document.createElement('h3');
   heading.innerText = 'Available Rooms';
   menuContent.appendChild(heading);

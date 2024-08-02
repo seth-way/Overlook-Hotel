@@ -10,6 +10,7 @@ import {
   openMenu,
   closeMenu,
   showMenuContent,
+  toggleLoginBtns,
 } from './domUpdates';
 import { getComplimentaryBtn } from './uiComponents/buttons';
 import { createMenu } from './uiComponents/menu';
@@ -30,15 +31,19 @@ const { toggleMenuBtns, adjustMenuMaxHeight, hideCloseMenuBtns } = menu;
 /*--- DOM ELEMENTS ---*/
 //- buttons -//
 const loginBtn = document.getElementById('open-login-btn');
+const logoutBtn = document.getElementById('open-logout-btn');
 const menuBtnGroups = document.querySelectorAll('.menu-options > li');
 const closeFormBtns = document.querySelectorAll('.menu > .close');
 const altCloseBtn = document.getElementById('alt-close-btn');
+const openBookingsBtn = document.getElementById('open-bookings-btn');
 //- forms -//
 const loginForm = document.getElementById('login-form');
 const checkDatesForm = document.getElementById('check-dates-form');
 const bookingsForm = document.getElementById('bookings-form');
 //- containers -//
 const menuContent = document.getElementById('menu-content');
+//- login dependent elements -//
+const loggedRequiredEls = document.querySelectorAll('.login-required');
 /*--- EVENT LISTENERS ---*/
 window.onload = start;
 window.onresize = adjustMenuMaxHeight;
@@ -120,25 +125,20 @@ loginForm.onsubmit = e => {
   const inputs = loginForm.querySelectorAll('input');
   const username = inputs[0].value;
   const password = inputs[1].value;
-
-  if (username === 'customer50' && password === 'overlook2021') {
-    getResource('customers', 50)
-      .then(customer => {
-        user = customer;
-      })
-      .catch(err => console.alert(err));
-  }
   if (username === 'manager' && password === 'overlook2021') {
     user.id = 999;
     user.name = 'Management';
     user.isAdmin = true;
-  }
-  const { id, isAdmin } = user;
-  if (id) {
-    const updates = updateUserBookings(id, allBookings, allRooms, isAdmin);
-    userBookings = { ...userBookings, ...updates };
-    console.log('user bookings', userBookings);
-    openMenu('bookings', userBookings, isAdmin);
+    loginUser();
+  } else if (username === 'customer50' && password === 'overlook2021') {
+    getResource('customers', 50)
+      .then(customer => {
+        user = customer;
+        loginUser();
+      })
+      .catch(err => console.alert(err));
+  } else {
+    alert('incorrect username or password. try again.');
   }
 };
 //- bookings form event listeners -//
@@ -153,21 +153,8 @@ function start() {
   Promise.all([getResource('rooms'), getResource('bookings')])
     .then(data => {
       updateGlobalVariables(...data);
-      //- remove next 2 lines after working on bookings menu -//
-      const updates = updateUserBookings(50, allBookings, allRooms);
-      userBookings = { ...userBookings, ...updates };
-      console.log('user bookings', userBookings);
-      openMenu('bookings', userBookings);
-      //- remove above lines after completing bookings menu -//
     })
     .catch(err => console.log(err));
-  // auto login customer 50.... remove after development.
-  getResource('customers', 50)
-    .then(customer => {
-      user = customer;
-    })
-    .catch(err => console.alert(err));
-  // end of section to remove after development.
 }
 
 function updateGlobalVariables({ rooms }, { bookings }) {
@@ -175,4 +162,22 @@ function updateGlobalVariables({ rooms }, { bookings }) {
   allBookings = [...bookings];
   filteredRooms = filterRooms(roomFilters, allRooms, allBookings);
   loadContent(allRooms);
+}
+
+function loginUser() {
+  const { id, name, isAdmin } = user;
+  loggedRequiredEls.forEach(element => {
+    element.classList.remove('login-required');
+  });
+  logoutBtn.querySelector('p').innerText = name;
+  toggleLoginBtns();
+
+  const updates = updateUserBookings(id, allBookings, allRooms, isAdmin);
+  userBookings = { ...userBookings, ...updates };
+  closeMenu();
+  setTimeout(() => {
+    const closeBookingsBtn = getComplimentaryBtn(openBookingsBtn);
+    openMenu('bookings', userBookings, isAdmin);
+    toggleMenuBtns(openBookingsBtn, closeBookingsBtn);
+  }, 500);
 }
