@@ -5,12 +5,18 @@ import { getCurrentDate } from './scripts';
 /*--- DOM ELEMENTS ---*/
 //- containers -//
 const headerImg = document.getElementById('header-img-container');
+const menuDrawer = document.getElementById('menu-drawer');
+const menuForms = menuDrawer.querySelectorAll('form');
 const menuContent = document.getElementById('menu-content');
 //- buttons -//
 const userLoginBtns = document.getElementById('user-login-grp');
+const openMenuBtns = document.querySelectorAll('.open-menu-btn');
+const altCloseBtn = document.getElementById('alt-close-btn');
 //- inputs -//
 const roomDateInput = document.getElementById('vacancy-date');
 const roomTypeSelector = document.getElementById('vacancy-room-types');
+//- other -//
+const menuTitle = menuDrawer.querySelector('h2');
 /*--- FUNCTIONS ---*/
 export function loadContent(rooms) {
   createPageContent(rooms);
@@ -90,17 +96,54 @@ export function unhideElement(element) {
   element.ariaHidden = 'false';
   element.removeAttribute('disabled');
 }
-//- show content functions -//
-export function showMenuContent(type, data, isAdmin) {
-  if (type === 'dates') {
-    showRooms(data)
-  }
+//- menu functions -//
+export function openMenu(menuType, data, isAdminAccount) {
+  showMenuContent(menuType, data, isAdminAccount);
+  unhideElement(menuDrawer);
 }
 
-function showRooms(rooms) {
+export function closeMenu(closeBtn) {
+  openMenuBtns.forEach(button => unhideElement(button));
+  hideElement(menuDrawer, 'minimized');
+
+  if (closeBtn)
+    setTimeout(() => {
+      hideElement(closeBtn, 'hidden');
+      closeBtn.querySelector('img').classList.add('clear');
+    }, 500);
+}
+
+const showMenuType = {
+  login: showLoginMenu,
+  dates: showDatesMenu,
+  bookings: showBookingsMenu,
+};
+
+export function showMenuContent(type, data, isAdmin) {
+  if (!showMenuType[type]) alert('MENU TYPE: ' + type);
+  else {
+    hideElement(altCloseBtn, 'hidden');
+    menuForms.forEach(form => hideElement(form, 'hidden'));
+    const menuForm = [...menuForms].find(form => form.id.includes(type));
+    unhideElement(menuForm);
+    showMenuType[type](data, isAdmin);
+  }
+  showMenuType[type](data, isAdmin);
+}
+
+function showLoginMenu() {
+  unhideElement(altCloseBtn);
+  menuTitle.innerText = 'sign in';
+}
+
+function showDatesMenu(rooms, isAdmin) {
   menuContent.innerHTML = '';
   const heading = document.createElement('h3');
   heading.innerText = 'Available Rooms';
   menuContent.appendChild(heading);
   menuContent.appendChild(createRoomCards(rooms));
+}
+
+function showBookingsMenu(isAdminAccount) {
+  menuTitle.innerText = isAdminAccount ? 'bookings' : 'my bookings';
 }

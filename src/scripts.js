@@ -2,7 +2,14 @@ import './css/styles.css';
 import './images/upTriangle.svg';
 
 import { filterRooms, updateRoomFilterOptions } from './rooms';
-import { loadContent, hideElement, showMenuContent } from './domUpdates';
+import {
+  loadContent,
+  hideElement,
+  unhideElement,
+  openMenu,
+  closeMenu,
+  showMenuContent,
+} from './domUpdates';
 import { getComplimentaryBtn } from './uiComponents/buttons';
 import { createMenu } from './uiComponents/menu';
 import { getResource } from './apiCalls';
@@ -12,11 +19,12 @@ var user = {};
 var allRooms = [];
 var allBookings = [];
 var filteredRooms = [];
+var filteredBookings = [];
 var roomFilters = { date: getCurrentDate(), roomType: '', bedSize: '' };
 
 //- menu functions -//
 var menu = createMenu();
-const { openMenu, closeMenu, toggleMenuBtns, adjustMenuMaxHeight } = menu;
+const { toggleMenuBtns, adjustMenuMaxHeight, hideCloseMenuBtns } = menu;
 /*--- DOM ELEMENTS ---*/
 //- buttons -//
 const loginBtn = document.getElementById('open-login-btn');
@@ -26,7 +34,6 @@ const altCloseBtn = document.getElementById('alt-close-btn');
 //- forms -//
 const loginForm = document.getElementById('login-form');
 const checkDatesForm = document.getElementById('check-dates-form');
-const vacancyDateInput = document.getElementById('vacancy-date');
 const bookingsForm = document.getElementById('bookings-form');
 //- containers -//
 const menuContent = document.getElementById('menu-content');
@@ -36,6 +43,7 @@ window.onresize = adjustMenuMaxHeight;
 //- button clicks -//
 loginBtn.onclick = () => {
   menuContent.innerHTML = '';
+  hideCloseMenuBtns();
   openMenu('login');
 };
 
@@ -49,8 +57,8 @@ menuBtnGroups.forEach(
         const menuType = id.includes('dates') ? 'dates' : 'bookings';
         const data = menuType === 'dates' ? allRooms : allBookings;
         const { isAdmin } = user;
-        showMenuContent(menuType, data, isAdmin);
-      }
+        openMenu(menuType, data, isAdmin);
+      } else closeMenu(clickedBtn);
       toggleMenuBtns(clickedBtn, otherBtn);
     })
 );
@@ -103,6 +111,7 @@ loginForm.onsubmit = e => {
   const inputs = loginForm.querySelectorAll('input');
   const username = inputs[0].value;
   const password = inputs[1].value;
+
   if (username === 'customer50' && password === 'overlook2021') {
     getResource('customers', 50)
       .then(customer => {
@@ -114,6 +123,10 @@ loginForm.onsubmit = e => {
     user.id = 999;
     user.name = 'Management';
     user.isAdmin = true;
+  }
+
+  if (user.id) {
+    showMenuContent();
   }
 };
 
