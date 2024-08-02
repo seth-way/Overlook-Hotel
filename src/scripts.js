@@ -82,7 +82,7 @@ closeFormBtns.forEach(
 );
 
 altCloseBtn.onclick = () => closeMenu();
-
+//- check dates form event listeners-//
 checkDatesForm.oninput = e => {
   const { id, value } = e.target;
   roomFilters = updateRoomFilterOptions(id, value, roomFilters);
@@ -102,7 +102,7 @@ checkDatesForm.onreset = e => {
     selector.value = '';
   });
 };
-
+//- login form event listeners -//
 loginForm.oninput = e => {
   const { value } = e.target;
   const isValid = !value || value.length > 7;
@@ -141,6 +141,12 @@ loginForm.onsubmit = e => {
     openMenu('bookings', userBookings, isAdmin);
   }
 };
+//- bookings form event listeners -//
+bookingsForm.oninput = e => {
+  userBookings.selection = e.target.value;
+  console.log('user bookings', userBookings);
+  openMenu('bookings', userBookings);
+};
 /*--- FUNCTIONS ---*/
 function start() {
   adjustMenuMaxHeight();
@@ -148,10 +154,10 @@ function start() {
     .then(data => {
       updateGlobalVariables(...data);
       //- remove next 2 lines after working on bookings menu -//
-    const updates = updateUserBookings(50, allBookings, allRooms);
-    userBookings = { ...userBookings, ...updates };
-    console.log('user bookings', userBookings);
-    openMenu('bookings', userBookings);
+      const updates = updateUserBookings(50, allBookings, allRooms);
+      userBookings = { ...userBookings, ...updates };
+      console.log('user bookings', userBookings);
+      openMenu('bookings', userBookings);
       //- remove above lines after completing bookings menu -//
     })
     .catch(err => console.log(err));

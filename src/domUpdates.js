@@ -161,18 +161,19 @@ function showBookingsMenu(bookings, isAdmin) {
   const bookingsContainer = document.createElement('section');
   bookingsContainer.id = 'bookings-lists';
   menuContent.appendChild(bookingsContainer);
-
-  bookingsContainer.appendChild(
-    createBookingsList(bookings.upcoming, selection, 'upcoming')
+  const upcomingBookings = createBookingsList(
+    bookings.upcoming,
+    selection,
+    'upcoming'
   );
-  bookingsContainer.appendChild(
-    createBookingsList(bookings.past, selection, 'past')
-  );
+  if (upcomingBookings) bookingsContainer.appendChild(upcomingBookings);
+  const pastBookings = createBookingsList(bookings.past, selection, 'past');
+  if (pastBookings) bookingsContainer.appendChild(pastBookings);
 }
 
 function createBookingsList(bookings, selection, type) {
   var bookingsList = '';
-  if (selection === 'all' || selection === 'type') {
+  if (selection === 'all' || selection === type) {
     bookingsList = document.createElement('section');
 
     const heading = document.createElement('h4');
