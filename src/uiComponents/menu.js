@@ -25,9 +25,11 @@ export const createMenu = () => {
 
     clickedBtn.disabled = 'true';
     unhideElement(otherBtn);
+    otherBtn.disabled = true;
 
     setTimeout(() => {
       hideElement(clickedBtn, 'clear');
+      otherBtn.disabled = false;
       otherBtn.querySelector('img') &&
         otherBtn.querySelector('img').classList.remove('clear');
     }, 500);

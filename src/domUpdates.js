@@ -92,7 +92,7 @@ export function toggleLoginBtns() {
 export function hideElement(element, ...hiddenClasses) {
   element.classList.add(...hiddenClasses);
   element.ariaHidden = 'true';
-  element.disabled = 'true';
+  element.disabled = true;
 }
 
 export function unhideElement(element) {
@@ -107,11 +107,15 @@ export function openMenu(menuType, data, isAdminAccount) {
 }
 
 export function closeMenu(closeBtn) {
-  openMenuBtns.forEach(button => unhideElement(button));
-  hideElement(menuDrawer, 'minimized');
+  openMenuBtns.forEach(button => {
+    unhideElement(button);
+  });
 
+  hideElement(menuDrawer, 'minimized');
+  hideElement(closeBtn);
   if (closeBtn)
     setTimeout(() => {
+      openMenuBtns.forEach(button => unhideElement(button));
       hideElement(closeBtn, 'hidden');
       closeBtn.querySelector('img').classList.add('clear');
     }, 500);
