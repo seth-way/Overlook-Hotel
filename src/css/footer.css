@@ -1,0 +1,7 @@
+footer {
+  display: flex;
+  align-items: center;
+  border: thin pink solid;
+  min-height: 3rem;
+  background: black;
+}

@@ -1,16 +1,19 @@
-export function createRoomCards(rooms) {
+import { unhideElement } from '../domUpdates';
+
+export function createRoomCards(rooms, user) {
   if (!rooms.length) return createNoRoomsFoundMessage();
   const cardsContainer = document.createElement('div');
   cardsContainer.classList.add('room-cards-container');
 
   rooms.forEach(room => {
-    const roomCard = createRoomCard(room);
+    const roomCard = createRoomCard(room, user);
     cardsContainer.appendChild(roomCard);
   });
   return cardsContainer;
 }
 
-function createRoomCard(room) {
+function createRoomCard(room, user) {
+  const { id, isAdmin } = user;
   const roomCard = document.createElement('div');
   roomCard.classList.add('card');
   const cardHeading = document.createElement('h4');
@@ -18,19 +21,34 @@ function createRoomCard(room) {
   roomCard.appendChild(cardHeading);
   const roomGrid = createRoomInfo(room);
   roomCard.appendChild(roomGrid);
-
+  if (id && !isAdmin) roomCard.appendChild(createBookItBtn());
   return roomCard;
+}
+
+function createBookItBtn() {
+  const bookingBtn = document.createElement('button');
+  bookingBtn.classList.add('booking-btn');
+
+  bookingBtn.innerHTML = '<span>book room</span>';
+
+  const original = document.getElementById('dummy-booking-icon');
+  const copy = original.cloneNode(true);
+  copy.removeAttribute('id');
+  unhideElement(copy);
+  bookingBtn.appendChild(copy);
+
+  return bookingBtn;
 }
 
 function createRoomInfo(room) {
   const { roomType, bidet, bedSize, numBeds, costPerNight } = room;
-  const labels = ['type', 'bed size', '# beds', 'has bidet', 'per night'];
+  const labels = ['per night', 'type', 'bed size', '# beds', 'has bidet'];
   const values = [
+    `$${costPerNight}`,
     roomType,
     bedSize,
     numBeds,
     bidet ? '✓' : '✗',
-    `$${costPerNight}`,
   ];
   const infoContainer = document.createElement('div');
   infoContainer.classList.add('room-card-info');

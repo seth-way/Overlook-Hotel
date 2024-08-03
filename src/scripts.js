@@ -17,7 +17,7 @@ import { createMenu } from './uiComponents/menu';
 import { getResource } from './apiCalls';
 import { getCurrentDate } from './utility';
 /*--- GLOBALS ---*/
-var user = {};
+var user = { id: 1 };
 var allRooms = [];
 var filteredRooms = [];
 var allBookings = [];
@@ -61,14 +61,13 @@ logoutBtn.onclick = logoutUser;
 menuBtnGroups.forEach(
   buttonGrp =>
     (buttonGrp.onclick = e => {
-      const { isAdmin } = user;
       const clickedBtn = e.target.closest('button');
       if (clickedBtn) {
         const otherBtn = getComplimentaryBtn(clickedBtn);
         const { id } = clickedBtn;
         if (id.includes('open')) {
           const [menuType, data] = getMenuTypeAndData(id);
-          openMenu(menuType, data, isAdmin);
+          openMenu(menuType, data, user);
         } else closeMenu(clickedBtn);
         toggleMenuBtns(clickedBtn, otherBtn);
       }
@@ -128,8 +127,7 @@ loginForm.onsubmit = e => {
 //- bookings form event listeners -//
 bookingsForm.oninput = e => {
   userBookings.selection = e.target.value;
-  console.log('user bookings', userBookings);
-  openMenu('bookings', userBookings);
+  openMenu('bookings', userBookings, user);
 };
 /*--- FUNCTIONS ---*/
 function start() {
@@ -163,7 +161,7 @@ function loginUser() {
   hideElement(menuDrawer, 'minimized');
   setTimeout(() => {
     const closeBookingsBtn = getComplimentaryBtn(openBookingsBtn);
-    openMenu('bookings', userBookings, isAdmin);
+    openMenu('bookings', userBookings, user);
     toggleMenuBtns(openBookingsBtn, closeBookingsBtn);
   }, 500);
 }
