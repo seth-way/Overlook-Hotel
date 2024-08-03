@@ -96,7 +96,7 @@ export function hideElement(element, ...hiddenClasses) {
 }
 
 export function unhideElement(element) {
-  element.classList.remove('clear', 'minimized', 'hidden', 'login-required');
+  element.classList.remove('clear', 'minimized', 'hidden');
   element.ariaHidden = 'false';
   element.removeAttribute('disabled');
 }

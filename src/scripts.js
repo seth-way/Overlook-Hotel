@@ -63,13 +63,7 @@ menuBtnGroups.forEach(
         const otherBtn = getComplimentaryBtn(clickedBtn);
         const { id } = clickedBtn;
         if (id.includes('open')) {
-          const menuType = id.includes('dates') ? 'dates' : 'bookings';
-          const data =
-            menuType === 'dates'
-              ? allRooms
-              : isAdmin
-              ? allBookings
-              : userBookings;
+          const [menuType, data] = getMenuTypeAndData(id);
           openMenu(menuType, data, isAdmin);
         } else closeMenu(clickedBtn);
         toggleMenuBtns(clickedBtn, otherBtn);
@@ -97,9 +91,11 @@ checkDatesForm.oninput = e => {
 
 checkDatesForm.onreset = e => {
   e.preventDefault();
+  //- reset data -//
   roomFilters = { date: getCurrentDate(), roomType: '', bedSize: '' };
   filteredRooms = filterRooms(roomFilters, allRooms, allBookings);
   showMenuContent('dates', filteredRooms, user.isAdmin);
+  //- clear inputs -//
   const dateInput = checkDatesForm.querySelector('input');
   dateInput.value = roomFilters.date;
   const selectors = checkDatesForm.querySelectorAll('select');
@@ -122,25 +118,8 @@ loginForm.oninput = e => {
 
 loginForm.onsubmit = e => {
   e.preventDefault();
-  console.log('submitttttttted');
   const inputs = loginForm.querySelectorAll('input');
-  const username = inputs[0].value;
-  const password = inputs[1].value;
-  if (username === 'manager' && password === 'overlook2021') {
-    user.id = 999;
-    user.name = 'Management';
-    user.isAdmin = true;
-    loginUser();
-  } else if (username === 'customer50' && password === 'overlook2021') {
-    getResource('customers', 50)
-      .then(customer => {
-        user = customer;
-        loginUser();
-      })
-      .catch(err => console.alert(err));
-  } else {
-    alert('incorrect username or password. try again.');
-  }
+  validateLoginInfo(inputs[0].value, inputs[1].value);
 };
 //- bookings form event listeners -//
 bookingsForm.oninput = e => {
@@ -181,4 +160,30 @@ function loginUser() {
     openMenu('bookings', userBookings, isAdmin);
     toggleMenuBtns(openBookingsBtn, closeBookingsBtn);
   }, 500);
+}
+//- validate input functions -//
+function getMenuTypeAndData(buttonID) {
+  const { isAdmin } = user;
+  const menuType = buttonID.includes('dates') ? 'dates' : 'bookings';
+  const data =
+    menuType === 'dates' ? allRooms : isAdmin ? allBookings : userBookings;
+  return [menuType, data];
+}
+
+function validateLoginInfo(username, password) {
+  if (username === 'manager' && password === 'overlook2021') {
+    user.id = 999;
+    user.name = 'Management';
+    user.isAdmin = true;
+    loginUser();
+  } else if (username === 'customer50' && password === 'overlook2021') {
+    getResource('customers', 50)
+      .then(customer => {
+        user = customer;
+        loginUser();
+      })
+      .catch(err => console.alert(err));
+  } else {
+    alert('incorrect username or password. try again.');
+  }
 }
