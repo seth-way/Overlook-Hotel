@@ -14,7 +14,7 @@ import {
 } from './domUpdates';
 import { getComplimentaryBtn } from './uiComponents/buttons';
 import { createMenu } from './uiComponents/menu';
-import { getResource } from './apiCalls';
+import { getResource, postResource } from './apiCalls';
 import { getCurrentDate } from './utility';
 /*--- GLOBALS ---*/
 var user = { id: 1 };
@@ -41,6 +41,8 @@ const openBookingsBtn = document.getElementById('open-bookings-btn');
 const loginForm = document.getElementById('login-form');
 const checkDatesForm = document.getElementById('check-dates-form');
 const bookingsForm = document.getElementById('bookings-form');
+//- form inputs -//
+const dateInput = document.getElementById('vacancy-date');
 //- containers -//
 const menuDrawer = document.getElementById('menu-drawer');
 const menuContent = document.getElementById('menu-content');
@@ -89,7 +91,7 @@ checkDatesForm.oninput = e => {
   const { id, value } = e.target;
   roomFilters = updateRoomFilterOptions(id, value, roomFilters);
   filteredRooms = filterRooms(roomFilters, allRooms, allBookings);
-  showMenuContent('dates', filteredRooms, user.isAdmin);
+  showMenuContent('dates', filteredRooms, user);
 };
 
 checkDatesForm.onreset = e => {
@@ -128,6 +130,27 @@ loginForm.onsubmit = e => {
 bookingsForm.oninput = e => {
   userBookings.selection = e.target.value;
   openMenu('bookings', userBookings, user);
+};
+//- menu content event listeners -//
+menuContent.onclick = e => {
+  const button = e.target.closest('button');
+  if (button) {
+    if (button.id.startsWith('bookit')) {
+      const [, userID, roomNumber] = button.id.split('-');
+      const { value } = dateInput;
+      if (value) {
+        const date = dateInput.value.replaceAll('-', '/');
+        const data = {
+          userID: Number(userID),
+          roomNumber: Number(roomNumber),
+          date,
+        };
+        postResource('bookings', data)
+          .then(message => console.log(message))
+          .catch(err => console.error(err));
+      }
+    }
+  }
 };
 /*--- FUNCTIONS ---*/
 function start() {

@@ -14,6 +14,7 @@ export function createRoomCards(rooms, user) {
 
 function createRoomCard(room, user) {
   const { id, isAdmin } = user;
+  const { number } = room;
   const roomCard = document.createElement('div');
   roomCard.classList.add('card');
   const cardHeading = document.createElement('h4');
@@ -21,15 +22,17 @@ function createRoomCard(room, user) {
   roomCard.appendChild(cardHeading);
   const roomGrid = createRoomInfo(room);
   roomCard.appendChild(roomGrid);
-  if (id && !isAdmin) roomCard.appendChild(createBookItBtn());
+  const bookitBtn = createBookItBtn(id, number);
+  if (id && !isAdmin) roomCard.appendChild(bookitBtn);
   return roomCard;
 }
 
-function createBookItBtn() {
+function createBookItBtn(userID, roomNumber) {
   const bookingBtn = document.createElement('button');
+  bookingBtn.id = 'bookit-' + userID + '-' + roomNumber;
   bookingBtn.classList.add('booking-btn');
 
-  bookingBtn.innerHTML = '<span>book room</span>';
+  bookingBtn.innerHTML = '<span>book it!</span>';
 
   const original = document.getElementById('dummy-booking-icon');
   const copy = original.cloneNode(true);
