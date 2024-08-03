@@ -24,7 +24,7 @@ export function postResource(endpoint, resource) {
     },
     body: JSON.stringify(resource),
   };
-  console.log('body', options.body);
+
   return fetch(url, options)
     .then(response => {
       if (response.status !== 201) {

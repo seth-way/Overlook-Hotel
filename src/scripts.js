@@ -21,10 +21,17 @@ var user = { id: 1 };
 var allRooms = [];
 var filteredRooms = [];
 var allBookings = [];
-var userBookings = { selection: 'all' };
+var userBookings = { selection: 'all', past: [], upcoming: [], totals: {} };
 
-var roomFilters = { date: getCurrentDate(), roomType: '', bedSize: '' };
+var filterDefaults = {
+  date: getCurrentDate().replaceAll('-', '/'),
+  roomType: '',
+  bedSize: '',
+};
 
+var roomFilters = {
+  ...filterDefaults,
+};
 //- menu functions -//
 var menu = createMenu();
 const { toggleMenuBtns, adjustMenuMaxHeight, hideCloseMenuBtns } = menu;
@@ -97,12 +104,14 @@ checkDatesForm.oninput = e => {
 checkDatesForm.onreset = e => {
   e.preventDefault();
   //- reset data -//
-  roomFilters = { date: getCurrentDate(), roomType: '', bedSize: '' };
+  roomFilters = {
+    ...filterDefaults,
+  };
   filteredRooms = filterRooms(roomFilters, allRooms, allBookings);
-  showMenuContent('dates', filteredRooms, user.isAdmin);
+  showMenuContent('dates', filteredRooms, user);
   //- clear inputs -//
   const dateInput = checkDatesForm.querySelector('input');
-  dateInput.value = roomFilters.date;
+  dateInput.value = roomFilters.date.replaceAll('/', '-');
   const selectors = checkDatesForm.querySelectorAll('select');
   selectors.forEach(selector => {
     selector.value = '';
@@ -139,7 +148,7 @@ menuContent.onclick = e => {
       const [, userID, roomNumber] = button.id.split('-');
       const { value } = dateInput;
       if (value) {
-        const date = dateInput.value.replaceAll('-', '/');
+        const date = value.replaceAll('-', '/');
         const data = {
           userID: Number(userID),
           roomNumber: Number(roomNumber),
@@ -147,6 +156,18 @@ menuContent.onclick = e => {
         };
         postResource('bookings', data)
           .then(message => console.log(message))
+          .then(() => getResource('bookings'))
+          .then(({ bookings }) => (allBookings = [...bookings]))
+          .then(() => {
+            showUserBookings(user, userBookings, allBookings, allRooms);
+            roomFilters = {
+              ...filterDefaults,
+            };
+            filteredRooms = filterRooms(roomFilters, allRooms, allBookings);
+            const dateInput = checkDatesForm.querySelector('input');
+            dateInput.value = roomFilters.date.replaceAll('/', '-');
+            const selectors = checkDatesForm.querySelectorAll('select');
+          })
           .catch(err => console.error(err));
       }
     }
@@ -159,7 +180,12 @@ function start() {
     .then(data => {
       updateGlobalVariables(...data);
     })
-    .catch(err => console.log(err));
+    .then(() => getResource('customers', 50))
+    .then(customer => {
+      user = customer;
+      loginUser();
+    })
+    .catch(err => console.error(err));
 }
 
 function updateGlobalVariables({ rooms }, { bookings }) {
@@ -170,7 +196,7 @@ function updateGlobalVariables({ rooms }, { bookings }) {
 }
 
 function loginUser() {
-  const { id, name, isAdmin } = user;
+  const { name } = user;
   loggedRequiredEls.forEach(element => {
     element.classList.remove('login-required');
   });
@@ -179,14 +205,7 @@ function loginUser() {
   openLogoutBtn.querySelector('h5').innerText = name;
   toggleLoginBtns();
 
-  const updates = updateUserBookings(id, allBookings, allRooms, isAdmin);
-  userBookings = { ...userBookings, ...updates };
-  hideElement(menuDrawer, 'minimized');
-  setTimeout(() => {
-    const closeBookingsBtn = getComplimentaryBtn(openBookingsBtn);
-    openMenu('bookings', userBookings, user);
-    toggleMenuBtns(openBookingsBtn, closeBookingsBtn);
-  }, 500);
+  showUserBookings(user, userBookings, allBookings, allRooms);
 }
 
 function logoutUser() {
@@ -204,12 +223,25 @@ function logoutUser() {
   hideElement(menuDrawer, 'minimized');
   hideCloseMenuBtns();
 }
+
+function showUserBookings(user, userBookings, allBookings, allRooms) {
+  updateUserBookings(user, userBookings, allBookings, allRooms);
+
+  hideElement(menuDrawer, 'minimized');
+  hideCloseMenuBtns();
+  setTimeout(() => {
+    const closeBookingsBtn = getComplimentaryBtn(openBookingsBtn);
+    openMenu('bookings', userBookings, user);
+    toggleMenuBtns(openBookingsBtn, closeBookingsBtn);
+  }, 500);
+}
 //- validate input functions -//
 function getMenuTypeAndData(buttonID) {
   const { isAdmin } = user;
   const menuType = buttonID.includes('dates') ? 'dates' : 'bookings';
+  // if (menuType === 'dates') {filterdRooms = filterRooms(roomsFilters, )}
   const data =
-    menuType === 'dates' ? allRooms : isAdmin ? allBookings : userBookings;
+    menuType === 'dates' ? filteredRooms : isAdmin ? allBookings : userBookings;
   return [menuType, data];
 }
 

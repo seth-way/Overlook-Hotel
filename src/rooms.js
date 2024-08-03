@@ -8,7 +8,6 @@ export function getRoomByNumber(roomNumber, rooms) {
 export function getAvailableRooms(date, rooms, bookings) {
   const bookingsOnDate = getBookingsByDate(date, bookings);
   const bookedRoomNumbers = bookingsOnDate.map(booking => booking.roomNumber);
-
   return rooms.filter(room => !bookedRoomNumbers.includes(room.number));
 }
 
@@ -45,7 +44,7 @@ function getFilterKeyFromInputID(id) {
 
 export function updateRoomFilterOptions(id, value, filterOptions) {
   const key = getFilterKeyFromInputID(id);
-  filterOptions[key] = value;
+  filterOptions[key] = key === 'date' ? value.replaceAll('-', '/') : value;
   return filterOptions;
 }
 
