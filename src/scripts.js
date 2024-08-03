@@ -31,7 +31,8 @@ const { toggleMenuBtns, adjustMenuMaxHeight, hideCloseMenuBtns } = menu;
 /*--- DOM ELEMENTS ---*/
 //- buttons -//
 const loginBtn = document.getElementById('open-login-btn');
-const logoutBtn = document.getElementById('open-logout-btn');
+const logoutBtn = document.getElementById('logout-btn');
+const openLogoutBtn = document.getElementById('open-logout-btn');
 const menuBtnGroups = document.querySelectorAll('.menu-options > li');
 const closeFormBtns = document.querySelectorAll('.menu > .close');
 const altCloseBtn = document.getElementById('alt-close-btn');
@@ -41,6 +42,7 @@ const loginForm = document.getElementById('login-form');
 const checkDatesForm = document.getElementById('check-dates-form');
 const bookingsForm = document.getElementById('bookings-form');
 //- containers -//
+const menuDrawer = document.getElementById('menu-drawer');
 const menuContent = document.getElementById('menu-content');
 //- login dependent elements -//
 const loggedRequiredEls = document.querySelectorAll('.login-required');
@@ -53,6 +55,8 @@ loginBtn.onclick = () => {
   hideCloseMenuBtns();
   openMenu('login');
 };
+
+logoutBtn.onclick = logoutUser;
 
 menuBtnGroups.forEach(
   buttonGrp =>
@@ -80,7 +84,7 @@ closeFormBtns.forEach(
     })
 );
 
-altCloseBtn.onclick = () => closeMenu();
+altCloseBtn.onclick = () => hideElement(menuDrawer, 'minimized');
 //- check dates form event listeners-//
 checkDatesForm.oninput = e => {
   const { id, value } = e.target;
@@ -111,9 +115,9 @@ loginForm.oninput = e => {
   e.target.parentElement.style.setProperty('--isValid-color', color);
   const inputs = loginForm.querySelectorAll('input');
   const allInputsValidated = [...inputs].every(input => input.value.length > 7);
-  if (allInputsValidated)
+  if (allInputsValidated) {
     loginForm.querySelector('button').removeAttribute('disabled');
-  else loginForm.querySelector('button').setAttribute('disabled', 'true');
+  } else loginForm.querySelector('button').setAttribute('disabled', 'true');
 };
 
 loginForm.onsubmit = e => {
@@ -149,17 +153,35 @@ function loginUser() {
   loggedRequiredEls.forEach(element => {
     element.classList.remove('login-required');
   });
-  logoutBtn.querySelector('p').innerText = name;
+  resetLoginForm();
+  openLogoutBtn.querySelector('p').innerText = name;
+  openLogoutBtn.querySelector('h5').innerText = name;
   toggleLoginBtns();
 
   const updates = updateUserBookings(id, allBookings, allRooms, isAdmin);
   userBookings = { ...userBookings, ...updates };
-  closeMenu();
+  hideElement(menuDrawer, 'minimized');
   setTimeout(() => {
     const closeBookingsBtn = getComplimentaryBtn(openBookingsBtn);
     openMenu('bookings', userBookings, isAdmin);
     toggleMenuBtns(openBookingsBtn, closeBookingsBtn);
   }, 500);
+}
+
+function logoutUser() {
+  loggedRequiredEls.forEach(element => {
+    element.classList.add('login-required');
+  });
+
+  user = {};
+  userBookings = { selection: 'all' };
+
+  openLogoutBtn.querySelector('p').innerText = '';
+  openLogoutBtn.querySelector('h5').innerText = '';
+
+  toggleLoginBtns();
+  hideElement(menuDrawer, 'minimized');
+  hideCloseMenuBtns();
 }
 //- validate input functions -//
 function getMenuTypeAndData(buttonID) {
@@ -182,8 +204,14 @@ function validateLoginInfo(username, password) {
         user = customer;
         loginUser();
       })
-      .catch(err => console.alert(err));
+      .catch(err => console.error(err));
   } else {
     alert('incorrect username or password. try again.');
   }
+}
+
+function resetLoginForm() {
+  loginForm.querySelectorAll('input').forEach(input => {
+    input.value = '';
+  });
 }
