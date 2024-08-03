@@ -20,7 +20,7 @@ export function groupBookingsPastVsUpcoming(bookings) {
   const initial = { past: [], upcoming: [] };
   const groupedBookings = bookings.reduce((acc, booking) => {
     const bookingDate = new Date(booking.date);
-    if (bookingDate.valueOf() < Date.now().valueOf()) {
+    if (bookingDate.valueOf() < getValueOfCurrentDate()) {
       acc.past.push(booking);
     } else {
       acc.upcoming.push(booking);
