@@ -31,7 +31,7 @@
           <div id="user-login-grp">
             <button
               id="open-login-btn"
-              class="login"
+              class="login hidden"
               aria-label="sign in"
               aria-hidden="false"
             >
@@ -43,17 +43,25 @@
               />
               <p>Sign In</p>
             </button>
-            <button
+            <!-- <button
               id="open-logout-btn"
-              class="login hidden"
+              class="login"
               aria-label="sign out"
               aria-hidden="true"
               disabled
-            >
+            > -->
+            <button id="open-logout-btn" class="login" aria-label="sign out">
               <img
-                src="https://img.icons8.com/?size=100&id=WWIRij774QJt&format=png&color=ffffff"
+                src="https://img.icons8.com/?size=100&id=WWIRij774QJt&format=png&color=ba1818"
               />
-              <p>Seth Way</p>
+              <p>USERNAME</p>
+              <span class="tool-tip">
+                <h5>USERNAME</h5>
+                <hr />
+                <ul>
+                  <li id="logout-btn">log out</li>
+                </ul>
+              </span>
             </button>
           </div>
           <ul class="menu-options">

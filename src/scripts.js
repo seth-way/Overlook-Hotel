@@ -31,7 +31,8 @@ const { toggleMenuBtns, adjustMenuMaxHeight, hideCloseMenuBtns } = menu;
 /*--- DOM ELEMENTS ---*/
 //- buttons -//
 const loginBtn = document.getElementById('open-login-btn');
-const logoutBtn = document.getElementById('open-logout-btn');
+const logoutBtn = document.getElementById('logout-btn');
+const openLogoutBtn = document.getElementById('open-logout-btn');
 const menuBtnGroups = document.querySelectorAll('.menu-options > li');
 const closeFormBtns = document.querySelectorAll('.menu > .close');
 const altCloseBtn = document.getElementById('alt-close-btn');
@@ -41,6 +42,7 @@ const loginForm = document.getElementById('login-form');
 const checkDatesForm = document.getElementById('check-dates-form');
 const bookingsForm = document.getElementById('bookings-form');
 //- containers -//
+const menuDrawer = document.getElementById('menu-drawer');
 const menuContent = document.getElementById('menu-content');
 //- login dependent elements -//
 const loggedRequiredEls = document.querySelectorAll('.login-required');
@@ -54,6 +56,8 @@ loginBtn.onclick = () => {
   openMenu('login');
 };
 
+logoutBtn.onclick = logoutUser;
+
 menuBtnGroups.forEach(
   buttonGrp =>
     (buttonGrp.onclick = e => {
@@ -63,13 +67,7 @@ menuBtnGroups.forEach(
         const otherBtn = getComplimentaryBtn(clickedBtn);
         const { id } = clickedBtn;
         if (id.includes('open')) {
-          const menuType = id.includes('dates') ? 'dates' : 'bookings';
-          const data =
-            menuType === 'dates'
-              ? allRooms
-              : isAdmin
-              ? allBookings
-              : userBookings;
+          const [menuType, data] = getMenuTypeAndData(id);
           openMenu(menuType, data, isAdmin);
         } else closeMenu(clickedBtn);
         toggleMenuBtns(clickedBtn, otherBtn);
@@ -86,7 +84,7 @@ closeFormBtns.forEach(
     })
 );
 
-altCloseBtn.onclick = () => closeMenu();
+altCloseBtn.onclick = () => hideElement(menuDrawer, 'minimized');
 //- check dates form event listeners-//
 checkDatesForm.oninput = e => {
   const { id, value } = e.target;
@@ -97,9 +95,11 @@ checkDatesForm.oninput = e => {
 
 checkDatesForm.onreset = e => {
   e.preventDefault();
+  //- reset data -//
   roomFilters = { date: getCurrentDate(), roomType: '', bedSize: '' };
   filteredRooms = filterRooms(roomFilters, allRooms, allBookings);
   showMenuContent('dates', filteredRooms, user.isAdmin);
+  //- clear inputs -//
   const dateInput = checkDatesForm.querySelector('input');
   dateInput.value = roomFilters.date;
   const selectors = checkDatesForm.querySelectorAll('select');
@@ -115,32 +115,15 @@ loginForm.oninput = e => {
   e.target.parentElement.style.setProperty('--isValid-color', color);
   const inputs = loginForm.querySelectorAll('input');
   const allInputsValidated = [...inputs].every(input => input.value.length > 7);
-  if (allInputsValidated)
+  if (allInputsValidated) {
     loginForm.querySelector('button').removeAttribute('disabled');
-  else loginForm.querySelector('button').setAttribute('disabled', 'true');
+  } else loginForm.querySelector('button').setAttribute('disabled', 'true');
 };
 
 loginForm.onsubmit = e => {
   e.preventDefault();
-  console.log('submitttttttted');
   const inputs = loginForm.querySelectorAll('input');
-  const username = inputs[0].value;
-  const password = inputs[1].value;
-  if (username === 'manager' && password === 'overlook2021') {
-    user.id = 999;
-    user.name = 'Management';
-    user.isAdmin = true;
-    loginUser();
-  } else if (username === 'customer50' && password === 'overlook2021') {
-    getResource('customers', 50)
-      .then(customer => {
-        user = customer;
-        loginUser();
-      })
-      .catch(err => console.alert(err));
-  } else {
-    alert('incorrect username or password. try again.');
-  }
+  validateLoginInfo(inputs[0].value, inputs[1].value);
 };
 //- bookings form event listeners -//
 bookingsForm.oninput = e => {
@@ -170,15 +153,65 @@ function loginUser() {
   loggedRequiredEls.forEach(element => {
     element.classList.remove('login-required');
   });
-  logoutBtn.querySelector('p').innerText = name;
+  resetLoginForm();
+  openLogoutBtn.querySelector('p').innerText = name;
+  openLogoutBtn.querySelector('h5').innerText = name;
   toggleLoginBtns();
 
   const updates = updateUserBookings(id, allBookings, allRooms, isAdmin);
   userBookings = { ...userBookings, ...updates };
-  closeMenu();
+  hideElement(menuDrawer, 'minimized');
   setTimeout(() => {
     const closeBookingsBtn = getComplimentaryBtn(openBookingsBtn);
     openMenu('bookings', userBookings, isAdmin);
     toggleMenuBtns(openBookingsBtn, closeBookingsBtn);
   }, 500);
+}
+
+function logoutUser() {
+  loggedRequiredEls.forEach(element => {
+    element.classList.add('login-required');
+  });
+
+  user = {};
+  userBookings = { selection: 'all' };
+
+  openLogoutBtn.querySelector('p').innerText = '';
+  openLogoutBtn.querySelector('h5').innerText = '';
+
+  toggleLoginBtns();
+  hideElement(menuDrawer, 'minimized');
+  hideCloseMenuBtns();
+}
+//- validate input functions -//
+function getMenuTypeAndData(buttonID) {
+  const { isAdmin } = user;
+  const menuType = buttonID.includes('dates') ? 'dates' : 'bookings';
+  const data =
+    menuType === 'dates' ? allRooms : isAdmin ? allBookings : userBookings;
+  return [menuType, data];
+}
+
+function validateLoginInfo(username, password) {
+  if (username === 'manager' && password === 'overlook2021') {
+    user.id = 999;
+    user.name = 'Management';
+    user.isAdmin = true;
+    loginUser();
+  } else if (username === 'customer50' && password === 'overlook2021') {
+    getResource('customers', 50)
+      .then(customer => {
+        user = customer;
+        loginUser();
+      })
+      .catch(err => console.error(err));
+  } else {
+    alert('incorrect username or password. try again.');
+  }
+}
+
+function resetLoginForm() {
+  loginForm.querySelectorAll('input').forEach(input => {
+    input.value = '';
+  });
 }

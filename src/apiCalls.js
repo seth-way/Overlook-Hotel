@@ -5,12 +5,12 @@ export function getResource(endpoint, id) {
     .then(response => {
       if (!response.ok) {
         var errorMessage = 'GET ERROR: Response not OK >>> STATUS';
-        errorMessage += ` ${response.status} - ${response.statusText}`
+        errorMessage += ` ${response.status} - ${response.statusText}`;
         throw new Error(errorMessage);
       }
       return response.json();
     })
     .then(data => data)
-    .catch(err => console.alert(err));
+    .catch(err => console.error(err));
   return data;
 }
