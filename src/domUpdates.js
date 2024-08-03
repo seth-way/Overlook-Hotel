@@ -101,8 +101,8 @@ export function unhideElement(element) {
   element.removeAttribute('disabled');
 }
 //- menu functions -//
-export function openMenu(menuType, data, isAdminAccount) {
-  showMenuContent(menuType, data, isAdminAccount);
+export function openMenu(menuType, data, user) {
+  showMenuContent(menuType, data, user);
   unhideElement(menuDrawer);
 }
 
@@ -127,7 +127,7 @@ const showMenuType = {
   bookings: showBookingsMenu,
 };
 
-export function showMenuContent(type, data, isAdmin) {
+export function showMenuContent(type, data, user) {
   if (!showMenuType[type]) alert('MENU TYPE: ' + type);
   else {
     hideElement(altCloseBtn, 'hidden');
@@ -135,7 +135,7 @@ export function showMenuContent(type, data, isAdmin) {
     const menuForm = [...menuForms].find(form => form.id.includes(type));
     unhideElement(menuForm);
     menuContent.innerHTML = '';
-    showMenuType[type](data, isAdmin);
+    showMenuType[type](data, user);
   }
 }
 
@@ -144,15 +144,16 @@ function showLoginMenu() {
   menuTitle.innerText = 'sign in';
 }
 
-function showDatesMenu(rooms, isAdmin) {
+function showDatesMenu(rooms, user) {
   menuTitle.innerText = 'check rooms by date';
   const heading = document.createElement('h3');
   heading.innerText = 'Available Rooms';
   menuContent.appendChild(heading);
-  menuContent.appendChild(createRoomCards(rooms));
+  menuContent.appendChild(createRoomCards(rooms, user));
 }
 
-function showBookingsMenu(bookings, isAdmin) {
+function showBookingsMenu(bookings, user) {
+  const { isAdmin } = user;
   const { selection, totals } = bookings;
   menuTitle.innerText = isAdmin ? 'bookings' : 'my bookings';
   if (isAdmin) {

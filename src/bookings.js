@@ -1,5 +1,8 @@
 import { getTotalSpent } from './customers';
-import { convertToCurrency } from './utility';
+import {
+  convertToCurrency,
+  getValueOfCurrentDate,
+} from './utility';
 import { getRoomPrice } from './rooms';
 
 export function getBookingsByCustomer(id, bookings) {
@@ -16,7 +19,7 @@ export function groupBookingsPastVsUpcoming(bookings) {
   const initial = { past: [], upcoming: [] };
   const groupedBookings = bookings.reduce((acc, booking) => {
     const bookingDate = new Date(booking.date);
-    if (bookingDate.valueOf() < Date.now().valueOf()) {
+    if (bookingDate.valueOf() < getValueOfCurrentDate()) {
       acc.past.push(booking);
     } else {
       acc.upcoming.push(booking);
@@ -31,30 +34,29 @@ export function groupBookingsPastVsUpcoming(bookings) {
   return groupedBookings;
 }
 
-export function updateUserBookings(id, bookings, rooms, isAdmin) {
+export function updateUserBookings(user, userBookings, bookings, rooms) {
+  const { id, isAdmin } = user;
   var allUserBookings = isAdmin
     ? bookings
     : getBookingsByCustomer(id, bookings);
-
   allUserBookings = allUserBookings.map(booking => {
     booking.price = getRoomPrice(booking.roomNumber, rooms);
     return booking;
-  })
-  const userBookings = groupBookingsPastVsUpcoming(allUserBookings);
+  });
+  const updates = groupBookingsPastVsUpcoming(allUserBookings);
+  updates.totals = {};
 
-  userBookings.totals = {};
+  const { totals } = updates;
 
-  const { totals } = userBookings;
-
-  totals.past = getTotalSpent(userBookings.past, rooms);
-  totals.upcoming = getTotalSpent(userBookings.upcoming, rooms);
+  totals.past = getTotalSpent(updates.past, rooms);
+  totals.upcoming = getTotalSpent(updates.upcoming, rooms);
   totals.total = totals.past + totals.upcoming;
 
   Object.keys(totals).forEach(key => {
     totals[key] = convertToCurrency(totals[key]);
   });
 
-  return userBookings;
+  userBookings = Object.assign(userBookings, updates);
 }
 
 export function sortBookingsByDate(bookings) {

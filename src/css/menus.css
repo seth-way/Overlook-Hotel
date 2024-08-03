@@ -12,7 +12,7 @@
 
 #menu {
   min-width: max(300px, 50%);
-  max-width: 1000px;
+  max-width: 1100px;
   background: white;
   color: black;
   padding: 1rem 1rem;
@@ -122,6 +122,10 @@
     flex-direction: column;
     align-items: center;
     padding: 4rem 0;
+  }
+
+  #check-dates-form {
+    min-width: min(95vw, 1100px);
   }
 
   button.close {
