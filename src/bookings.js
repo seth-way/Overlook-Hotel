@@ -1,7 +1,6 @@
 import { getTotalSpent } from './customers';
 import {
   convertToCurrency,
-  getCurrentDate,
   getValueOfCurrentDate,
 } from './utility';
 import { getRoomPrice } from './rooms';
