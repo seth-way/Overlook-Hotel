@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  width: 100%;
+  width: calc(100% - 4rem);
   overflow: hidden;
 
   h3 {

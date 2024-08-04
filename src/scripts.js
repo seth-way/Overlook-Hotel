@@ -3,6 +3,9 @@ import './images/upTriangle.svg';
 import './images/github.png';
 import './images/linkedin.png';
 import './images/tech.png';
+import './images/stock-hotel-1.jpg';
+import './images/stock-hotel-2.jpg';
+import './images/stock-hotel-3.jpg';
 
 import { filterRooms, updateRoomFilterOptions } from './rooms';
 import { updateUserBookings } from './bookings';
