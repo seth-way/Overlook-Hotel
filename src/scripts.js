@@ -23,7 +23,7 @@ import { createMenu } from './uiComponents/menu';
 import { getResource, postResource } from './apiCalls';
 import { getCurrentDate } from './utility';
 /*--- GLOBALS ---*/
-var user = { id: 1 };
+var user = {};
 var allRooms = [];
 var filteredRooms = [];
 var allBookings = [];
@@ -50,6 +50,7 @@ const menuBtnGroups = document.querySelectorAll('.menu-options > li');
 const closeFormBtns = document.querySelectorAll('.menu > .close');
 const altCloseBtn = document.getElementById('alt-close-btn');
 const openBookingsBtn = document.getElementById('open-bookings-btn');
+const autoLogin = document.getElementById('auto-login');
 //- forms -//
 const loginForm = document.getElementById('login-form');
 const checkDatesForm = document.getElementById('check-dates-form');
@@ -141,6 +142,21 @@ loginForm.onsubmit = e => {
   const inputs = loginForm.querySelectorAll('input');
   validateLoginInfo(inputs[0].value, inputs[1].value);
 };
+
+autoLogin.onclick = () => {
+  const inputs = loginForm.querySelectorAll('input');
+  document.body.style.pointerEvents = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => {
+    openMenu('login');
+    setTimeout(() => {
+      inputs[0].value = 'customer50';
+      inputs[1].value = 'overlook2021';
+      loginForm.querySelector('button').removeAttribute('disabled');
+      document.body.style.pointerEvents = 'auto';
+    }, 500);
+  }, 500);
+};
 //- bookings form event listeners -//
 bookingsForm.oninput = e => {
   userBookings.selection = e.target.value;
@@ -185,11 +201,6 @@ function start() {
   Promise.all([getResource('rooms'), getResource('bookings')])
     .then(data => {
       updateGlobalVariables(...data);
-    })
-    .then(() => getResource('customers', 50))
-    .then(customer => {
-      user = customer;
-      loginUser();
     })
     .catch(err => console.error(err));
 }

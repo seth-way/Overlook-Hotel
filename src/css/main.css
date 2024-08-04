@@ -66,6 +66,14 @@ main {
       line-height: 1.7rem;
       margin: 0;
     }
+
+    button {
+      border: none;
+      background: transparent;
+      color: #ba1818;
+      padding: 0;
+      font: inherit;
+    }
   }
 
   section {
