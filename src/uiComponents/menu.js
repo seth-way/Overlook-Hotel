@@ -44,7 +44,7 @@ export const createMenu = () => {
 
   function adjustMenuMaxHeight() {
     const navBarHeight = Math.floor(navBar.offsetHeight);
-    menuDrawer.style.maxHeight = `calc(100vh - ${navBarHeight}px)`
+    menuDrawer.style.maxHeight = `calc(100vh - ${navBarHeight}px - 5rem)`
   }
 
   return {
