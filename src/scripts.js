@@ -1,5 +1,8 @@
 import './css/styles.css';
 import './images/upTriangle.svg';
+import './images/github.png';
+import './images/linkedin.png';
+import './images/tech.png';
 
 import { filterRooms, updateRoomFilterOptions } from './rooms';
 import { updateUserBookings } from './bookings';
