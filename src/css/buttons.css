@@ -16,6 +16,11 @@ button.close {
   color: black;
   border: none;
   position: absolute;
+
+  @media (max-width: 900px) {
+    font-size: 0.6rem;
+    font-weight: 700;
+  }
 }
 
 button.close-menu-btn {
@@ -25,9 +30,17 @@ button.close-menu-btn {
   align-items: center;
   gap: 1em;
   justify-content: center;
-  top: calc(100% + 2.1em);
+  top: calc(100% + 1.7rem);
   right: 0;
   left: 0;
+
+  @media (max-width: 900px) {
+    top: calc(100% + 0.7rem);
+  }
+
+  @media (max-width: 625px) {
+    top: calc(100% + 0.4rem);
+  }
 
   p {
     margin: 0;
@@ -47,6 +60,11 @@ button.standard {
   font-style: normal;
   font-weight: 700;
   transition: filter 0.25s ease-in-out;
+
+  @media (max-width: 900px) {
+    padding: 10px 10px;
+    font-size: 0.6rem;
+  }
 
   &:hover:enabled {
     border: 2px solid black;
