@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.cdnfonts.com/css/helvetica-neue-55"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overlook Hotel</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div>
+          <svg fill="#fff" viewBox="0 0 462.525 462.525" xml:space="preserve">
+            <g>
+              <path
+                d="M461.52,388.76L311.65,129.19c-1.34-2.321-3.816-3.75-6.495-3.75c-2.68,0-5.156,1.43-6.495,3.75l-26.805,46.43 L231.43,105.6c-1.34-2.32-3.815-3.75-6.495-3.75c-2.679,0-5.155,1.43-6.495,3.75l-65.411,113.286l-20.477-35.468 c-1.34-2.32-3.815-3.75-6.495-3.75s-5.155,1.43-6.495,3.75L1.005,388.762c-1.34,2.32-1.34,5.18,0,7.5s3.815,3.75,6.495,3.75 l447.525-0.002c2.68,0,5.155-1.43,6.495-3.75C462.86,393.939,462.86,391.08,461.52,388.76z M305.155,147.94l42.281,73.229 l-14.009,21.239l-24.186-26.01c-1.385-1.49-3.316-2.353-5.351-2.391c-2.038-0.04-3.997,0.752-5.438,2.188l-20.968,20.909 L264.172,219.5L305.155,147.94z M224.934,124.349l27.145,47.017l-7.729,11.995l-15.963-19.155 c-1.603-1.923-4.063-2.921-6.549-2.657c-2.49,0.263-4.684,1.75-5.85,3.965l-10.275,19.522l-10.056-9.985L224.934,124.349z M187.901,188.488l14.441,14.34c1.416,1.406,3.32,2.178,5.284,2.178c0.378,0,0.758-0.028,1.138-0.087 c2.351-0.36,4.392-1.815,5.5-3.92l9.778-18.578l15.322,18.386c1.528,1.833,3.836,2.83,6.22,2.685 c2.382-0.146,4.553-1.417,5.846-3.423l9.083-14.096l2.683,4.647l-63.241,109.542l-38.265-66.277L187.901,188.488z M126.056,202.167 l30.41,52.671l-14.64,16.603l-15.405-18.706c-2.571-3.123-7.157-3.644-10.362-1.177l-11.101,8.539l-4.472-13.641L126.056,202.167z M90.417,263.896l3.588,10.944c0.758,2.313,2.591,4.113,4.917,4.831c2.325,0.717,4.855,0.261,6.783-1.222l13.749-10.576 l16.387,19.898c1.396,1.696,3.466,2.694,5.663,2.731c0.042,0,0.084,0.001,0.126,0.001c2.15,0,4.2-0.924,5.625-2.54l17.123-19.418 L231.62,385.01l-211.13,0.002L90.417,263.896z M248.941,385.01l-40.327-69.848l47.252-81.846l14.814,19.697 c1.305,1.734,3.297,2.819,5.462,2.973c2.161,0.15,4.29-0.638,5.828-2.17l21.575-21.514l25.396,27.311 c1.425,1.532,3.417,2.393,5.492,2.393c0.207,0,0.415-0.008,0.622-0.026c2.293-0.191,4.372-1.424,5.639-3.345l15.13-22.938 l86.211,149.315H248.941z"
+              ></path>
+              <path
+                d="M93.632,164.509c28.121,0,50.998-22.877,50.998-50.998c0-28.12-22.877-50.998-50.998-50.998 c-28.12,0-50.998,22.877-50.998,50.998C42.634,141.631,65.512,164.509,93.632,164.509z M93.632,77.513 c19.85,0,35.998,16.148,35.998,35.998c0,19.85-16.148,35.998-35.998,35.998c-19.849,0-35.998-16.148-35.998-35.998 C57.634,93.661,73.783,77.513,93.632,77.513z"
+              ></path>
+            </g>
+          </svg>
+          <hr />
+          <h1>overlook hotel</h1>
+        </div>
+        <div>
+          <div id="user-login-grp">
+            <button
+              id="open-login-btn"
+              class="login"
+              aria-label="sign in"
+              aria-hidden="false"
+            >
+              <img
+                width="50"
+                height="50"
+                src="https://img.icons8.com/ios/50/ffffff/gender-neutral-user--v1.png"
+                alt="gender-neutral-user--v1"
+              />
+              <p>Sign In</p>
+            </button>
+            <button
+              id="open-logout-btn"
+              class="login hidden"
+              aria-label="sign out"
+              aria-hidden="true"
+              disabled
+            >
+              <img
+                src="https://img.icons8.com/?size=100&id=WWIRij774QJt&format=png&color=ba1818"
+              />
+              <p>USERNAME</p>
+              <span class="tool-tip">
+                <h5>USERNAME</h5>
+                <hr />
+                <ul>
+                  <li id="logout-btn">log out</li>
+                </ul>
+              </span>
+            </button>
+          </div>
+          <ul class="menu-options">
+            <li>
+              <button
+                class="open-menu-btn standard login-required clear"
+                id="open-bookings-btn"
+                aria-label="show my bookings"
+                aria-hidden="true"
+                disabled
+              >
+                my bookings
+              </button>
+            </li>
+            <li>
+              <button
+                class="open-menu-btn standard"
+                id="open-dates-btn"
+                aria-label="check a date"
+              >
+                check dates
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <section id="menu-drawer" class="minimized" aria-hidden="true">
+        <div id="menu">
+          <header>
+            <h2>sign in</h2>
+            <form id="login-form" class="hidden" aria-hidden="true">
+              <div class="text-input-group">
+                <label for="login-username">Username:</label>
+                <input
+                  type="text"
+                  id="login-username"
+                  name="username"
+                  required
+                />
+              </div>
+              <div class="text-input-group">
+                <label for="login-password">Password:</label>
+                <input
+                  type="password"
+                  id="login-password"
+                  name="password"
+                  required
+                />
+              </div>
+              <button
+                id="login-submit-btn"
+                class="standard"
+                type="submit"
+                disabled
+              >
+                submit
+              </button>
+            </form>
+            <form id="check-dates-form" class="hidden" aria-hidden="true">
+              <div class="date-input-group">
+                <label for="vacancy-date">Date:</label>
+                <input type="date" id="vacancy-date" name="date" required />
+              </div>
+              <div class="selector-group">
+                <label for="vacancy-room-types">Room Type:</label>
+                <select id="vacancy-room-types" name="room types"></select>
+              </div>
+              <div class="selector-group">
+                <label for="vacancy-bed-sizes">Bed Size:</label>
+                <select id="vacancy-bed-sizes" name="bed sizes">
+                  <option value="" selected></option>
+                  <option value="king">king</option>
+                  <option value="queen">queen</option>
+                  <option value="full">full</option>
+                  <option value="twin">twin</option>
+                </select>
+              </div>
+              <button
+                class="standard"
+                id="clear-filters-btn"
+                type="reset"
+                aria-label="clear room filters"
+              >
+                clear filters
+              </button>
+            </form>
+            <form id="bookings-form" class="hidden" aria-hidden="true">
+              <fieldset>
+                <div class="radio-input-group">
+                  <legend>Show Bookings:</legend>
+                  <label for="upcoming-bookings-filter">upcoming</label>
+                  <input
+                    id="upcoming-bookings-filter"
+                    type="radio"
+                    name="timeframe"
+                    value="upcoming"
+                  />
+                  <label for="past-bookings-filter">past</label>
+                  <input
+                    id="past-bookings-filter"
+                    type="radio"
+                    name="timeframe"
+                    value="past"
+                  />
+                  <label for="all-bookings-filter">all</label>
+                  <input
+                    id="all-bookings-filter"
+                    type="radio"
+                    name="timeframe"
+                    value="all"
+                    checked
+                  />
+                </div>
+              </fieldset>
+              <div class="cost-summary-group">
+                <span><b>Total Spent:</b> upcoming </span
+                ><span id="spent-upcoming" class="cost"></span
+                ><span> <em>|</em> past </span
+                ><span id="spent-past" class="cost"></span
+                ><span> <em>|</em> total </span
+                ><span id="spent-total" class="cost"></span>
+              </div>
+            </form>
+            <button
+              id="alt-close-btn"
+              class="close hidden"
+              type="submit"
+              aria-label="close menu"
+              aria-hidden="true"
+            >
+              hide
+            </button>
+          </header>
+          <section id="menu-content"></section>
+        </div>
+      </section>
+      <div id="header-img-container"></div>
+    </header>
+    <main>
+      <h2>about this site</h2>
+      <div>
+        <article>
+          <figure>
+              <img
+                src="/images/stock-hotel-1.jpg"
+                alt="hotel pool overhead view"
+              />
+          </figure>
+          <h3>purpose</h3>
+          <p>This app is meant to simulate a hotel management UI for customers & staff to manage bookings & calculate bills.</p>
+        </article>
+        <section>
+          <article>
+            <figure>
+                <img src="/images/stock-hotel-2.jpg" alt="hotel pool" />
+            </figure>
+            <h3>for testing...</h3>
+            <p>To sign in as a customer <button aria-label="auto fill valid login info" type="button" id="auto-login">click here.</button></p>
+          </article>
+          <article>
+            <figure>
+                <img
+                  src="/images/stock-hotel-3.jpg"
+                  alt="hotel pool alt view"
+                />
+            </figure>
+            <h3>more info</h3>
+            <p>For more about this app, checkout the <a href="https://github.com/seth-way/Overlook-Hotel/blob/main/README.md" target="_blank">Github ReadMe.</a></p>
+          </article>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <span
+        >© 2024
+        <a href="https://github.com/seth-way" target="_blank">Seth Way</a></span
+      ><span class="social-links"
+        ><a href="https://github.com/seth-way" target="_blank"
+          ><img src="/images/github.png" alt="github logo" /></a
+        ><a href="https://www.linkedin.com/in/sethway/" target="_blank"
+          ><img src="/images/linkedin.png" alt="linkedin logo" /></a></span
+      ><img src="/images/tech.png" alt="javascript css and html logos" />
+    </footer>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      version="1.1"
+      width="256"
+      height="256"
+      viewBox="0 0 256 256"
+      xml:space="preserve"
+      id="dummy-booking-icon"
+      class="booking-cal-icon hidden"
+    >
+      <g
+        style="
+          stroke: none;
+          stroke-width: 0;
+          stroke-dasharray: none;
+          stroke-linecap: butt;
+          stroke-linejoin: miter;
+          stroke-miterlimit: 10;
+          fill: none;
+          fill-rule: nonzero;
+          opacity: 1;
+        "
+        transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+      >
+        <path
+          d="M 86.121 27.37 H 3.878 c -0.552 0 -1 -0.448 -1 -1 V 15.586 c 0 -4.915 3.999 -8.913 8.913 -8.913 h 66.417 c 4.915 0 8.913 3.999 8.913 8.913 V 26.37 C 87.121 26.922 86.674 27.37 86.121 27.37 z M 4.878 25.37 h 80.243 v -9.784 c 0 -3.812 -3.102 -6.913 -6.913 -6.913 H 11.792 c -3.812 0 -6.913 3.101 -6.913 6.913 V 25.37 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 43.087 90 H 11.792 c -4.915 0 -8.913 -3.998 -8.913 -8.913 V 26.37 c 0 -0.552 0.448 -1 1 -1 h 82.243 c 0.553 0 1 0.448 1 1 v 19.595 c 0 0.552 -0.447 1 -1 1 s -1 -0.448 -1 -1 V 27.37 H 4.878 v 53.717 c 0 3.812 3.101 6.913 6.913 6.913 h 31.295 c 0.552 0 1 0.447 1 1 S 43.639 90 43.087 90 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 20.294 15.349 c -0.552 0 -1 -0.448 -1 -1 V 1 c 0 -0.552 0.448 -1 1 -1 s 1 0.448 1 1 v 13.349 C 21.294 14.901 20.846 15.349 20.294 15.349 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 69.706 15.349 c -0.553 0 -1 -0.448 -1 -1 V 1 c 0 -0.552 0.447 -1 1 -1 s 1 0.448 1 1 v 13.349 C 70.706 14.901 70.259 15.349 69.706 15.349 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 45 15.349 c -0.552 0 -1 -0.448 -1 -1 V 1 c 0 -0.552 0.448 -1 1 -1 s 1 0.448 1 1 v 13.349 C 46 14.901 45.552 15.349 45 15.349 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 20.686 41.647 h -1.263 c -0.57 0 -1.032 -0.462 -1.032 -1.032 v -1.263 c 0 -0.57 0.462 -1.032 1.032 -1.032 h 1.263 c 0.57 0 1.032 0.462 1.032 1.032 v 1.263 C 21.718 41.185 21.256 41.647 20.686 41.647 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 37.316 41.647 h -1.263 c -0.57 0 -1.032 -0.462 -1.032 -1.032 v -1.263 c 0 -0.57 0.462 -1.032 1.032 -1.032 h 1.263 c 0.57 0 1.032 0.462 1.032 1.032 v 1.263 C 38.348 41.185 37.886 41.647 37.316 41.647 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 53.947 41.647 h -1.263 c -0.57 0 -1.032 -0.462 -1.032 -1.032 v -1.263 c 0 -0.57 0.462 -1.032 1.032 -1.032 h 1.263 c 0.57 0 1.032 0.462 1.032 1.032 v 1.263 C 54.978 41.185 54.516 41.647 53.947 41.647 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 70.577 41.647 h -1.263 c -0.57 0 -1.032 -0.462 -1.032 -1.032 v -1.263 c 0 -0.57 0.462 -1.032 1.032 -1.032 h 1.263 c 0.57 0 1.032 0.462 1.032 1.032 v 1.263 C 71.608 41.185 71.146 41.647 70.577 41.647 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 20.686 58.277 h -1.263 c -0.57 0 -1.032 -0.462 -1.032 -1.032 v -1.263 c 0 -0.57 0.462 -1.032 1.032 -1.032 h 1.263 c 0.57 0 1.032 0.462 1.032 1.032 v 1.263 C 21.718 57.816 21.256 58.277 20.686 58.277 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 37.316 58.277 h -1.263 c -0.57 0 -1.032 -0.462 -1.032 -1.032 v -1.263 c 0 -0.57 0.462 -1.032 1.032 -1.032 h 1.263 c 0.57 0 1.032 0.462 1.032 1.032 v 1.263 C 38.348 57.816 37.886 58.277 37.316 58.277 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 20.686 74.907 h -1.263 c -0.57 0 -1.032 -0.462 -1.032 -1.032 v -1.263 c 0 -0.57 0.462 -1.032 1.032 -1.032 h 1.263 c 0.57 0 1.032 0.462 1.032 1.032 v 1.263 C 21.718 74.446 21.256 74.907 20.686 74.907 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          d="M 37.316 74.907 h -1.263 c -0.57 0 -1.032 -0.462 -1.032 -1.032 v -1.263 c 0 -0.57 0.462 -1.032 1.032 -1.032 h 1.263 c 0.57 0 1.032 0.462 1.032 1.032 v 1.263 C 38.348 74.446 37.886 74.907 37.316 74.907 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill: rgb(0, 0, 0);
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          class="dynamic"
+          d="M 67.276 90 c -10.943 0 -19.846 -8.902 -19.846 -19.846 s 8.902 -19.846 19.846 -19.846 c 10.942 0 19.845 8.902 19.845 19.846 S 78.219 90 67.276 90 z M 67.276 52.309 c -9.84 0 -17.846 8.006 -17.846 17.846 S 57.437 88 67.276 88 s 17.845 -8.006 17.845 -17.846 S 77.116 52.309 67.276 52.309 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+        <path
+          class="dynamic"
+          d="M 64.683 76.052 c -0.008 0 -0.016 0 -0.024 0 c -0.281 -0.007 -0.547 -0.132 -0.731 -0.345 l -4.244 -4.896 c -0.361 -0.418 -0.316 -1.049 0.101 -1.411 c 0.417 -0.361 1.048 -0.316 1.411 0.101 l 3.524 4.066 l 8.708 -9.121 c 0.383 -0.399 1.016 -0.414 1.414 -0.033 c 0.399 0.382 0.414 1.015 0.033 1.414 l -9.468 9.916 C 65.217 75.94 64.955 76.052 64.683 76.052 z"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" matrix(1 0 0 1 0 0) "
+          stroke-linecap="round"
+        />
+      </g>
+    </svg>
+    <script src="bundle.js"></script>
+  </body>
+</html>

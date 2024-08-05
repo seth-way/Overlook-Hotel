@@ -1,0 +1,8 @@
+<svg
+  for="decoration"
+  xmlns="http://www.w3.org/2000/svg"
+  class="down clear"
+  viewBox="0 0 12 6"
+>
+  <polygon fill="#ffffff" fill-opacity="0.8" points="0 6, 12 6, 6 0"></polygon>
+</svg>
