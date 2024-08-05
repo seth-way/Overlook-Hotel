@@ -120,15 +120,15 @@
               </button>
             </form>
             <form id="check-dates-form" class="hidden" aria-hidden="true">
-              <div class="date-input-group">
+              <div class="date-type date-input-group">
                 <label for="vacancy-date">Date:</label>
                 <input type="date" id="vacancy-date" name="date" required />
               </div>
-              <div class="selector-group">
+              <div class="room-type selector-group">
                 <label for="vacancy-room-types">Room Type:</label>
                 <select id="vacancy-room-types" name="room types"></select>
               </div>
-              <div class="selector-group">
+              <div class="bed-type selector-group">
                 <label for="vacancy-bed-sizes">Bed Size:</label>
                 <select id="vacancy-bed-sizes" name="bed sizes">
                   <option value="" selected></option>
@@ -178,9 +178,9 @@
               <div class="cost-summary-group">
                 <span><b>Total Spent:</b> upcoming </span
                 ><span id="spent-upcoming" class="cost"></span
-                ><span> <em>|</em> past </span
+                ><hr><span> past </span
                 ><span id="spent-past" class="cost"></span
-                ><span> <em>|</em> total </span
+                ><hr><span> total </span
                 ><span id="spent-total" class="cost"></span>
               </div>
             </form>
