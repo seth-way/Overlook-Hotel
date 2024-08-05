@@ -5,8 +5,9 @@
   "main": "src/scripts.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/turingschool-examples/webpack-starter-kit.git"
+    "url": "git+https://github.com/seth-way/Overlook-Hotel.git"
   },
+  "homepage": "<http://seth-way.github.io/Overlook-Hotel>",
   "author": "Seth Way",
   "license": "MIT",
   "devDependencies": {
@@ -25,6 +26,11 @@
     "start": "webpack serve",
     "build": "webpack",
     "test": "mochapack 'test/**/*.js'",
-    "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'"
+    "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "gh-pages": "^6.1.1"
   }
 }

@@ -1,5 +1,5 @@
 export function getResource(endpoint, id) {
-  var url = 'http://localhost:3001/api/v1/' + endpoint;
+  var url = 'https://overlook-api-murex.vercel.app/api/v1/' + endpoint;
   if (id) url += '/' + id;
   const data = fetch(url)
     .then(response => {
@@ -16,7 +16,7 @@ export function getResource(endpoint, id) {
 }
 
 export function postResource(endpoint, resource) {
-  var url = 'http://localhost:3001/api/v1/' + endpoint;
+  var url = 'https://overlook-api-murex.vercel.app/api/v1/' + endpoint;
   var options = {
     method: 'POST',
     headers: {
