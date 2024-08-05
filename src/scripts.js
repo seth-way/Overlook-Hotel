@@ -150,7 +150,8 @@ autoLogin.onclick = () => {
   setTimeout(() => {
     openMenu('login');
     setTimeout(() => {
-      inputs[0].value = 'customer50';
+      const randomId = Math.ceil(Math.random() * 50);
+      inputs[0].value = 'customer' + randomId;
       inputs[1].value = 'overlook2021';
       loginForm.querySelector('button').removeAttribute('disabled');
       document.body.style.pointerEvents = 'auto';
@@ -268,13 +269,18 @@ function validateLoginInfo(username, password) {
     user.name = 'Management';
     user.isAdmin = true;
     loginUser();
-  } else if (username === 'customer50' && password === 'overlook2021') {
-    getResource('customers', 50)
-      .then(customer => {
-        user = customer;
-        loginUser();
-      })
-      .catch(err => console.error(err));
+  } else if (username.startsWith('customer') && password === 'overlook2021') {
+    const id = Number(username.slice(8));
+    if (id) {
+      getResource('customers', id)
+        .then(customer => {
+          user = customer;
+          loginUser();
+        })
+        .catch(err => console.error(err));
+    } else {
+      alert('ivalid username.');
+    }
   } else {
     alert('incorrect username or password. try again.');
   }
