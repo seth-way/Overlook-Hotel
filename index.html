@@ -8,14 +8,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="./images/logo.svg">
+    <link rel="icon" type="image/svg+xml" href="./images/logo.svg" />
     <title>Overlook Hotel</title>
   </head>
   <body>
     <header>
       <nav>
         <div>
-          <img src="./images/logo.svg" alt="hotel logo">
+          <img src="./images/logo.svg" alt="hotel logo" />
           <h1>verlook hotel</h1>
         </div>
         <div>
@@ -129,6 +129,21 @@
                   <option value="twin">twin</option>
                 </select>
               </div>
+              <div class="bed-count-type selector-group">
+                <label for="vacancy-bed-count"># Beds:</label>
+                <select id="vacancy-bed-count" name="bed count">
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                </select>
+              </div>
+              <div class="bidet-type toggle-group">
+                <label for="vacancy-bidet">Has Bidet:</label>
+                <label class="switch">
+                  <input id="vacancy-bidet" type="checkbox" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
               <button
                 class="standard"
                 id="clear-filters-btn"
@@ -168,11 +183,11 @@
               </fieldset>
               <div class="cost-summary-group">
                 <span><b>Total Spent:</b> upcoming </span
-                ><span id="spent-upcoming" class="cost"></span
-                ><hr><span> past </span
-                ><span id="spent-past" class="cost"></span
-                ><hr><span> total </span
-                ><span id="spent-total" class="cost"></span>
+                ><span id="spent-upcoming" class="cost"></span>
+                <hr />
+                <span> past </span><span id="spent-past" class="cost"></span>
+                <hr />
+                <span> total </span><span id="spent-total" class="cost"></span>
               </div>
             </form>
             <button
@@ -195,31 +210,50 @@
       <div>
         <article>
           <figure>
-              <img
-                src="./images/stanley1.jpg"
-                alt="danny from the shining seeing the Grady twins"
-              />
+            <img
+              src="./images/stanley1.jpg"
+              alt="danny from the shining seeing the Grady twins"
+            />
           </figure>
           <h3>purpose</h3>
-          <p>This app is meant to simulate a hotel management UI for customers & staff to manage bookings & calculate bills.</p>
+          <p>
+            This app is meant to simulate a hotel management UI for customers &
+            staff to manage bookings & calculate bills.
+          </p>
         </article>
         <section>
           <article>
             <figure>
-                <img src="./images/stanley2.jpg" alt="stanley hotel staircase" />
+              <img src="./images/stanley2.jpg" alt="stanley hotel staircase" />
             </figure>
-            <h3>for testing...</h3>
-            <p>To sign in as a customer <button aria-label="auto fill valid login info" type="button" id="auto-login">click here.</button></p>
+            <h3>for a demo...</h3>
+            <p>
+              Get customer credentials by clicking
+              <button
+                aria-label="auto fill valid login info"
+                type="button"
+                id="auto-login"
+              >
+                here.
+              </button>
+            </p>
           </article>
           <article>
             <figure>
-                <img
-                  src="./images/stanley3.jpg"
-                  alt="Jack Nicholson in the shining at the hotel bar"
-                />
+              <img
+                src="./images/stanley3.jpg"
+                alt="Jack Nicholson in the shining at the hotel bar"
+              />
             </figure>
             <h3>more info</h3>
-            <p>For more about this app, checkout the <a href="https://github.com/seth-way/Overlook-Hotel/blob/main/README.md" target="_blank">Github ReadMe.</a></p>
+            <p>
+              For more about this app, checkout the
+              <a
+                href="https://github.com/seth-way/Overlook-Hotel/blob/main/README.md"
+                target="_blank"
+                >Github ReadMe.</a
+              >
+            </p>
           </article>
         </section>
       </div>
