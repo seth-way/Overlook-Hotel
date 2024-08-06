@@ -254,7 +254,7 @@ function logoutUser() {
   openLogoutBtn.querySelector('h2').innerText = '';
 
   toggleLoginBtns();
-  hideElement(menuDrawer, 'minimized');
+  closeMenu();
   hideCloseMenuBtns();
 }
 
