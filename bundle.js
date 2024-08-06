@@ -1839,7 +1839,7 @@ function logoutUser() {
   openLogoutBtn.querySelector('h2').innerText = '';
 
   (0,_domUpdates__WEBPACK_IMPORTED_MODULE_20__.toggleLoginBtns)();
-  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_20__.hideElement)(menuDrawer, 'minimized');
+  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_20__.closeMenu)();
   hideCloseMenuBtns();
 }
 
