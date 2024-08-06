@@ -94,6 +94,14 @@
           @media (max-width: 900px) {
             margin: 0.15rem;
           }
+
+          .red {
+            color: red;
+          }
+
+          .green {
+            color: green;
+          }
         }
       }
 
