@@ -112,13 +112,13 @@ export function closeMenu(closeBtn) {
   });
 
   hideElement(menuDrawer, 'minimized');
-  hideElement(closeBtn);
-  if (closeBtn)
-    setTimeout(() => {
-      openMenuBtns.forEach(button => unhideElement(button));
+  setTimeout(() => {
+    openMenuBtns.forEach(button => unhideElement(button));
+    if (closeBtn) {
       hideElement(closeBtn, 'hidden');
       closeBtn.querySelector('img').classList.add('clear');
-    }, 500);
+    }
+  }, 500);
 }
 
 const showMenuType = {

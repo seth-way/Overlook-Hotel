@@ -102,7 +102,9 @@ closeFormBtns.forEach(
     })
 );
 
-altCloseBtn.onclick = () => hideElement(menuDrawer, 'minimized');
+altCloseBtn.onclick = () => {
+  closeMenu();
+};
 //- check dates form event listeners-//
 checkDatesForm.oninput = e => {
   const { id, value, type } = e.target;
