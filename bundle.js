@@ -1836,7 +1836,7 @@ function logoutUser() {
   userBookings = { selection: 'all' };
 
   openLogoutBtn.querySelector('p').innerText = '';
-  openLogoutBtn.querySelector('h5').innerText = '';
+  openLogoutBtn.querySelector('h2').innerText = '';
 
   (0,_domUpdates__WEBPACK_IMPORTED_MODULE_20__.toggleLoginBtns)();
   (0,_domUpdates__WEBPACK_IMPORTED_MODULE_20__.hideElement)(menuDrawer, 'minimized');
