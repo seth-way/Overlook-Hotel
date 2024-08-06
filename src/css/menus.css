@@ -172,6 +172,7 @@
 
     .radio-input-group {
       align-items: center;
+      width: 100%;
       gap: 0;
 
       label {
@@ -184,9 +185,8 @@
 
       input {
         accent-color: var(--red);
-        @media (max-width: 600px) {
-          height: 0.75rem;
-        }
+        height: 0.75rem;
+        width: 0.75rem;
       }
     }
 
@@ -250,6 +250,9 @@
     fieldset {
       border: none;
       padding: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
 
     button {
