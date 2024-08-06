@@ -528,7 +528,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body > header {\n  position: relative;\n  height: 100vh;\n  color: white;\n  background-image: linear-gradient(black, transparent, black);\n  background-size: cover;\n  background-position: center;\n  background-blend-mode: overlay;\n  overflow: hidden;\n\n  nav {\n    padding: 1em 3em;\n    color: white;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n\n    @media (max-width: 900px) {\n      padding: 1rem 1rem;\n\n      & > div:last-child {\n        display: flex;\n        flex-direction: row-reverse;\n        align-items: center;\n        gap: 0.25rem;\n\n        #user-login-grp {\n          margin: 0;\n        }\n\n        ul.menu-options {\n          padding: 0;\n          margin: 0;\n          li {\n            margin: 0;\n          }\n        }\n\n        @media (max-width: 600px) {\n          width: 100%;\n          justify-content: center;\n          gap: 10%;\n        }\n      }\n    }\n\n    @media (max-width: 625px) {\n      flex-direction: column;\n    }\n\n    h1 {\n      font-size: 1.5rem;\n      font-style: normal;\n      font-weight: 200;\n      white-space: nowrap;\n      letter-spacing: 0.7rem;\n\n      @media (max-width: 900px) {\n        font-size: 1rem;\n        letter-spacing: 0.3rem;\n      }\n    }\n\n    & > div:first-child {\n      height: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: flex-start;\n      gap: 1.5em;\n      @media (max-width: 900px) {\n        gap: 1rem;\n      }\n\n      hr {\n        width: 2px;\n        height: 2.5rem;\n        background: white;\n        border-style: solid;\n\n        @media (max-width: 900px) {\n          width: 1px;\n          height: 1.5rem;\n        }\n      }\n\n      svg {\n        height: 4rem;\n        aspect-ratio: 1 / 1;\n\n        @media (max-width: 900px) {\n          height: 2rem;\n        }\n      }\n    }\n\n    #user-login-grp {\n      display: flex;\n      align-items: center;\n      height: 1em;\n      justify-content: flex-end;\n      margin-bottom: 1em;\n      @media (max-width: 900px) {\n        height: 0.7rem;\n        p {\n          font-size: 0.7rem;\n        }\n      }\n    }\n\n    #upser-login-btn:hover {\n      opacity: 0.6;\n    }\n\n    #open-logout-btn {\n      position: relative;\n      overflow: visible;\n      z-index: 4;\n      opacity: 1;\n      &:hover {\n        cursor: auto;\n        opacity: 1;\n      }\n    }\n\n    #open-logout-btn .tool-tip {\n      min-width: 100px;\n      transform: scale(0);\n      visibility: none;\n      background-color: black;\n      color: white;\n      border: 2px solid white;\n      text-align: center;\n      padding: 0.25rem 1rem;\n      transition: transform 0.5s ease-in-out;\n      transform-origin: top right;\n      display: flex;\n      align-items: center;\n      gap: 1rem;\n      position: absolute;\n      top: 0;\n      right: 0;\n      z-index: 4;\n\n      @media (max-width: 600px) {\n        font-size: 0.7rem;\n        text-wrap: nowrap;\n      }\n\n      h5 {\n        color: white;\n        margin: 0;\n      }\n\n      hr {\n        height: 1rem;\n        border-style: solid;\n      }\n\n      ul {\n        padding: 0;\n        margin: 0;\n\n        li {\n          list-style-type: none;\n          text-wrap: nowrap;\n        }\n      }\n    }\n\n    #open-logout-btn:hover .tool-tip,\n    .tool-tip:hover {\n      visibility: visible;\n      transform: scale(1);\n      pointer-events: auto;\n\n      ul {\n        cursor: pointer;\n\n        &:hover {\n          filter: brightness(0.7);\n        }\n      }\n    }\n\n    #open-logout-btn.active .tool-tip {\n      visibility: visible;\n      transform: scale(1);\n      pointer-events: auto;\n    }\n\n    .login {\n      height: 100%;\n      display: flex;\n      align-items: center;\n      gap: 0.5em;\n      text-transform: none;\n      border: none;\n      background: transparent;\n      color: white;\n      img {\n        height: 100%;\n        width: auto;\n        aspect-ratio: 1 / 1;\n        color: white;\n      }\n    }\n\n    ul.menu-options {\n      margin: 0;\n      display: flex;\n      gap: 1em;\n\n      li {\n        list-style: none;\n        position: relative;\n        margin: 1.5em 0;\n      }\n\n      img {\n        height: 0.8em;\n      }\n    }\n  }\n}\n\n#header-img-container {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 100vh;\n  background-image: var(--bg-img);\n  background-size: cover;\n  background-position: center;\n  -webkit-transition: opacity 1s ease-in-out;\n  -moz-transition: opacity 1s ease-in-out;\n  -o-transition: opacity 1s ease-in-out;\n  transition: background-image 1s ease-in;\n  z-index: -2;\n}\n", "",{"version":3,"sources":["webpack://./src/css/header.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,aAAa;EACb,YAAY;EACZ,4DAA4D;EAC5D,sBAAsB;EACtB,2BAA2B;EAC3B,8BAA8B;EAC9B,gBAAgB;;EAEhB;IACE,gBAAgB;IAChB,YAAY;IACZ,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;;IAEnB;MACE,kBAAkB;;MAElB;QACE,aAAa;QACb,2BAA2B;QAC3B,mBAAmB;QACnB,YAAY;;QAEZ;UACE,SAAS;QACX;;QAEA;UACE,UAAU;UACV,SAAS;UACT;YACE,SAAS;UACX;QACF;;QAEA;UACE,WAAW;UACX,uBAAuB;UACvB,QAAQ;QACV;MACF;IACF;;IAEA;MACE,sBAAsB;IACxB;;IAEA;MACE,iBAAiB;MACjB,kBAAkB;MAClB,gBAAgB;MAChB,mBAAmB;MACnB,sBAAsB;;MAEtB;QACE,eAAe;QACf,sBAAsB;MACxB;IACF;;IAEA;MACE,YAAY;MACZ,aAAa;MACb,mBAAmB;MACnB,2BAA2B;MAC3B,UAAU;MACV;QACE,SAAS;MACX;;MAEA;QACE,UAAU;QACV,cAAc;QACd,iBAAiB;QACjB,mBAAmB;;QAEnB;UACE,UAAU;UACV,cAAc;QAChB;MACF;;MAEA;QACE,YAAY;QACZ,mBAAmB;;QAEnB;UACE,YAAY;QACd;MACF;IACF;;IAEA;MACE,aAAa;MACb,mBAAmB;MACnB,WAAW;MACX,yBAAyB;MACzB,kBAAkB;MAClB;QACE,cAAc;QACd;UACE,iBAAiB;QACnB;MACF;IACF;;IAEA;MACE,YAAY;IACd;;IAEA;MACE,kBAAkB;MAClB,iBAAiB;MACjB,UAAU;MACV,UAAU;MACV;QACE,YAAY;QACZ,UAAU;MACZ;IACF;;IAEA;MACE,gBAAgB;MAChB,mBAAmB;MACnB,gBAAgB;MAChB,uBAAuB;MACvB,YAAY;MACZ,uBAAuB;MACvB,kBAAkB;MAClB,qBAAqB;MACrB,sCAAsC;MACtC,2BAA2B;MAC3B,aAAa;MACb,mBAAmB;MACnB,SAAS;MACT,kBAAkB;MAClB,MAAM;MACN,QAAQ;MACR,UAAU;;MAEV;QACE,iBAAiB;QACjB,iBAAiB;MACnB;;MAEA;QACE,YAAY;QACZ,SAAS;MACX;;MAEA;QACE,YAAY;QACZ,mBAAmB;MACrB;;MAEA;QACE,UAAU;QACV,SAAS;;QAET;UACE,qBAAqB;UACrB,iBAAiB;QACnB;MACF;IACF;;IAEA;;MAEE,mBAAmB;MACnB,mBAAmB;MACnB,oBAAoB;;MAEpB;QACE,eAAe;;QAEf;UACE,uBAAuB;QACzB;MACF;IACF;;IAEA;MACE,mBAAmB;MACnB,mBAAmB;MACnB,oBAAoB;IACtB;;IAEA;MACE,YAAY;MACZ,aAAa;MACb,mBAAmB;MACnB,UAAU;MACV,oBAAoB;MACpB,YAAY;MACZ,uBAAuB;MACvB,YAAY;MACZ;QACE,YAAY;QACZ,WAAW;QACX,mBAAmB;QACnB,YAAY;MACd;IACF;;IAEA;MACE,SAAS;MACT,aAAa;MACb,QAAQ;;MAER;QACE,gBAAgB;QAChB,kBAAkB;QAClB,eAAe;MACjB;;MAEA;QACE,aAAa;MACf;IACF;EACF;AACF;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,aAAa;EACb,+BAA+B;EAC/B,sBAAsB;EACtB,2BAA2B;EAC3B,0CAA0C;EAC1C,uCAAuC;EACvC,qCAAqC;EACrC,uCAAuC;EACvC,WAAW;AACb","sourcesContent":["body > header {\n  position: relative;\n  height: 100vh;\n  color: white;\n  background-image: linear-gradient(black, transparent, black);\n  background-size: cover;\n  background-position: center;\n  background-blend-mode: overlay;\n  overflow: hidden;\n\n  nav {\n    padding: 1em 3em;\n    color: white;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n\n    @media (max-width: 900px) {\n      padding: 1rem 1rem;\n\n      & > div:last-child {\n        display: flex;\n        flex-direction: row-reverse;\n        align-items: center;\n        gap: 0.25rem;\n\n        #user-login-grp {\n          margin: 0;\n        }\n\n        ul.menu-options {\n          padding: 0;\n          margin: 0;\n          li {\n            margin: 0;\n          }\n        }\n\n        @media (max-width: 600px) {\n          width: 100%;\n          justify-content: center;\n          gap: 10%;\n        }\n      }\n    }\n\n    @media (max-width: 625px) {\n      flex-direction: column;\n    }\n\n    h1 {\n      font-size: 1.5rem;\n      font-style: normal;\n      font-weight: 200;\n      white-space: nowrap;\n      letter-spacing: 0.7rem;\n\n      @media (max-width: 900px) {\n        font-size: 1rem;\n        letter-spacing: 0.3rem;\n      }\n    }\n\n    & > div:first-child {\n      height: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: flex-start;\n      gap: 1.5em;\n      @media (max-width: 900px) {\n        gap: 1rem;\n      }\n\n      hr {\n        width: 2px;\n        height: 2.5rem;\n        background: white;\n        border-style: solid;\n\n        @media (max-width: 900px) {\n          width: 1px;\n          height: 1.5rem;\n        }\n      }\n\n      svg {\n        height: 4rem;\n        aspect-ratio: 1 / 1;\n\n        @media (max-width: 900px) {\n          height: 2rem;\n        }\n      }\n    }\n\n    #user-login-grp {\n      display: flex;\n      align-items: center;\n      height: 1em;\n      justify-content: flex-end;\n      margin-bottom: 1em;\n      @media (max-width: 900px) {\n        height: 0.7rem;\n        p {\n          font-size: 0.7rem;\n        }\n      }\n    }\n\n    #upser-login-btn:hover {\n      opacity: 0.6;\n    }\n\n    #open-logout-btn {\n      position: relative;\n      overflow: visible;\n      z-index: 4;\n      opacity: 1;\n      &:hover {\n        cursor: auto;\n        opacity: 1;\n      }\n    }\n\n    #open-logout-btn .tool-tip {\n      min-width: 100px;\n      transform: scale(0);\n      visibility: none;\n      background-color: black;\n      color: white;\n      border: 2px solid white;\n      text-align: center;\n      padding: 0.25rem 1rem;\n      transition: transform 0.5s ease-in-out;\n      transform-origin: top right;\n      display: flex;\n      align-items: center;\n      gap: 1rem;\n      position: absolute;\n      top: 0;\n      right: 0;\n      z-index: 4;\n\n      @media (max-width: 600px) {\n        font-size: 0.7rem;\n        text-wrap: nowrap;\n      }\n\n      h5 {\n        color: white;\n        margin: 0;\n      }\n\n      hr {\n        height: 1rem;\n        border-style: solid;\n      }\n\n      ul {\n        padding: 0;\n        margin: 0;\n\n        li {\n          list-style-type: none;\n          text-wrap: nowrap;\n        }\n      }\n    }\n\n    #open-logout-btn:hover .tool-tip,\n    .tool-tip:hover {\n      visibility: visible;\n      transform: scale(1);\n      pointer-events: auto;\n\n      ul {\n        cursor: pointer;\n\n        &:hover {\n          filter: brightness(0.7);\n        }\n      }\n    }\n\n    #open-logout-btn.active .tool-tip {\n      visibility: visible;\n      transform: scale(1);\n      pointer-events: auto;\n    }\n\n    .login {\n      height: 100%;\n      display: flex;\n      align-items: center;\n      gap: 0.5em;\n      text-transform: none;\n      border: none;\n      background: transparent;\n      color: white;\n      img {\n        height: 100%;\n        width: auto;\n        aspect-ratio: 1 / 1;\n        color: white;\n      }\n    }\n\n    ul.menu-options {\n      margin: 0;\n      display: flex;\n      gap: 1em;\n\n      li {\n        list-style: none;\n        position: relative;\n        margin: 1.5em 0;\n      }\n\n      img {\n        height: 0.8em;\n      }\n    }\n  }\n}\n\n#header-img-container {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 100vh;\n  background-image: var(--bg-img);\n  background-size: cover;\n  background-position: center;\n  -webkit-transition: opacity 1s ease-in-out;\n  -moz-transition: opacity 1s ease-in-out;\n  -o-transition: opacity 1s ease-in-out;\n  transition: background-image 1s ease-in;\n  z-index: -2;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body > header {\n  position: relative;\n  height: 100vh;\n  color: white;\n  background-image: linear-gradient(black, transparent, black);\n  background-size: cover;\n  background-position: center;\n  background-blend-mode: overlay;\n  overflow: hidden;\n\n  nav {\n    padding: 1em 3em;\n    color: white;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n\n    @media (max-width: 900px) {\n      padding: 1rem 1rem;\n\n      & > div:last-child {\n        display: flex;\n        flex-direction: row-reverse;\n        align-items: center;\n        gap: 0.25rem;\n\n        #user-login-grp {\n          margin: 0;\n        }\n\n        ul.menu-options {\n          padding: 0;\n          margin: 0;\n          li {\n            margin: 0;\n          }\n        }\n\n        @media (max-width: 600px) {\n          width: 100%;\n          justify-content: center;\n          gap: 10%;\n        }\n      }\n    }\n\n    @media (max-width: 625px) {\n      flex-direction: column;\n    }\n\n    h1 {\n      font-size: 1.5rem;\n      font-style: normal;\n      font-weight: 200;\n      white-space: nowrap;\n      letter-spacing: 0.7rem;\n\n      @media (max-width: 900px) {\n        font-size: 1rem;\n        letter-spacing: 0.3rem;\n      }\n    }\n\n    & > div:first-child {\n      height: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: flex-start;\n      gap: 0.25em;\n\n      img {\n        height: 3rem;\n        aspect-ratio: 1 / 1;\n\n        @media (max-width: 900px) {\n          height: 1.5rem;\n        }\n      }\n    }\n\n    #user-login-grp {\n      display: flex;\n      align-items: center;\n      height: 1em;\n      justify-content: flex-end;\n      margin-bottom: 1em;\n      @media (max-width: 900px) {\n        height: 0.7rem;\n        p {\n          font-size: 0.7rem;\n        }\n      }\n    }\n\n    #upser-login-btn:hover {\n      opacity: 0.6;\n    }\n\n    #open-logout-btn {\n      position: relative;\n      overflow: visible;\n      z-index: 4;\n      opacity: 1;\n      &:hover {\n        cursor: auto;\n        opacity: 1;\n      }\n    }\n\n    #open-logout-btn .tool-tip {\n      min-width: 100px;\n      transform: scale(0);\n      visibility: none;\n      background-color: black;\n      color: white;\n      border: 2px solid white;\n      text-align: center;\n      padding: 0.25rem 1rem;\n      transition: transform 0.5s ease-in-out;\n      transform-origin: top right;\n      display: flex;\n      align-items: center;\n      gap: 1rem;\n      position: absolute;\n      top: 0;\n      right: 0;\n      z-index: 4;\n\n      @media (max-width: 600px) {\n        font-size: 0.7rem;\n        text-wrap: nowrap;\n      }\n\n      h5 {\n        color: white;\n        margin: 0;\n      }\n\n      hr {\n        height: 1rem;\n        border-style: solid;\n      }\n\n      ul {\n        padding: 0;\n        margin: 0;\n\n        li {\n          list-style-type: none;\n          text-wrap: nowrap;\n        }\n      }\n    }\n\n    #open-logout-btn:hover .tool-tip,\n    .tool-tip:hover {\n      visibility: visible;\n      transform: scale(1);\n      pointer-events: auto;\n\n      ul {\n        cursor: pointer;\n\n        &:hover {\n          filter: brightness(0.7);\n        }\n      }\n    }\n\n    #open-logout-btn.active .tool-tip {\n      visibility: visible;\n      transform: scale(1);\n      pointer-events: auto;\n    }\n\n    .login {\n      height: 100%;\n      display: flex;\n      align-items: center;\n      gap: 0.5em;\n      text-transform: none;\n      border: none;\n      background: transparent;\n      color: white;\n      img {\n        height: 100%;\n        width: auto;\n        aspect-ratio: 1 / 1;\n        color: white;\n      }\n    }\n\n    ul.menu-options {\n      margin: 0;\n      display: flex;\n      gap: 1em;\n\n      li {\n        list-style: none;\n        position: relative;\n        margin: 1.5em 0;\n      }\n\n      img {\n        height: 0.8em;\n      }\n    }\n  }\n}\n\n#header-img-container {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 100vh;\n  background-image: var(--bg-img);\n  background-size: cover;\n  background-position: center;\n  -webkit-transition: opacity 1s ease-in-out;\n  -moz-transition: opacity 1s ease-in-out;\n  -o-transition: opacity 1s ease-in-out;\n  transition: background-image 1s ease-in;\n  z-index: -2;\n}\n", "",{"version":3,"sources":["webpack://./src/css/header.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,aAAa;EACb,YAAY;EACZ,4DAA4D;EAC5D,sBAAsB;EACtB,2BAA2B;EAC3B,8BAA8B;EAC9B,gBAAgB;;EAEhB;IACE,gBAAgB;IAChB,YAAY;IACZ,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;;IAEnB;MACE,kBAAkB;;MAElB;QACE,aAAa;QACb,2BAA2B;QAC3B,mBAAmB;QACnB,YAAY;;QAEZ;UACE,SAAS;QACX;;QAEA;UACE,UAAU;UACV,SAAS;UACT;YACE,SAAS;UACX;QACF;;QAEA;UACE,WAAW;UACX,uBAAuB;UACvB,QAAQ;QACV;MACF;IACF;;IAEA;MACE,sBAAsB;IACxB;;IAEA;MACE,iBAAiB;MACjB,kBAAkB;MAClB,gBAAgB;MAChB,mBAAmB;MACnB,sBAAsB;;MAEtB;QACE,eAAe;QACf,sBAAsB;MACxB;IACF;;IAEA;MACE,YAAY;MACZ,aAAa;MACb,mBAAmB;MACnB,2BAA2B;MAC3B,WAAW;;MAEX;QACE,YAAY;QACZ,mBAAmB;;QAEnB;UACE,cAAc;QAChB;MACF;IACF;;IAEA;MACE,aAAa;MACb,mBAAmB;MACnB,WAAW;MACX,yBAAyB;MACzB,kBAAkB;MAClB;QACE,cAAc;QACd;UACE,iBAAiB;QACnB;MACF;IACF;;IAEA;MACE,YAAY;IACd;;IAEA;MACE,kBAAkB;MAClB,iBAAiB;MACjB,UAAU;MACV,UAAU;MACV;QACE,YAAY;QACZ,UAAU;MACZ;IACF;;IAEA;MACE,gBAAgB;MAChB,mBAAmB;MACnB,gBAAgB;MAChB,uBAAuB;MACvB,YAAY;MACZ,uBAAuB;MACvB,kBAAkB;MAClB,qBAAqB;MACrB,sCAAsC;MACtC,2BAA2B;MAC3B,aAAa;MACb,mBAAmB;MACnB,SAAS;MACT,kBAAkB;MAClB,MAAM;MACN,QAAQ;MACR,UAAU;;MAEV;QACE,iBAAiB;QACjB,iBAAiB;MACnB;;MAEA;QACE,YAAY;QACZ,SAAS;MACX;;MAEA;QACE,YAAY;QACZ,mBAAmB;MACrB;;MAEA;QACE,UAAU;QACV,SAAS;;QAET;UACE,qBAAqB;UACrB,iBAAiB;QACnB;MACF;IACF;;IAEA;;MAEE,mBAAmB;MACnB,mBAAmB;MACnB,oBAAoB;;MAEpB;QACE,eAAe;;QAEf;UACE,uBAAuB;QACzB;MACF;IACF;;IAEA;MACE,mBAAmB;MACnB,mBAAmB;MACnB,oBAAoB;IACtB;;IAEA;MACE,YAAY;MACZ,aAAa;MACb,mBAAmB;MACnB,UAAU;MACV,oBAAoB;MACpB,YAAY;MACZ,uBAAuB;MACvB,YAAY;MACZ;QACE,YAAY;QACZ,WAAW;QACX,mBAAmB;QACnB,YAAY;MACd;IACF;;IAEA;MACE,SAAS;MACT,aAAa;MACb,QAAQ;;MAER;QACE,gBAAgB;QAChB,kBAAkB;QAClB,eAAe;MACjB;;MAEA;QACE,aAAa;MACf;IACF;EACF;AACF;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,aAAa;EACb,+BAA+B;EAC/B,sBAAsB;EACtB,2BAA2B;EAC3B,0CAA0C;EAC1C,uCAAuC;EACvC,qCAAqC;EACrC,uCAAuC;EACvC,WAAW;AACb","sourcesContent":["body > header {\n  position: relative;\n  height: 100vh;\n  color: white;\n  background-image: linear-gradient(black, transparent, black);\n  background-size: cover;\n  background-position: center;\n  background-blend-mode: overlay;\n  overflow: hidden;\n\n  nav {\n    padding: 1em 3em;\n    color: white;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n\n    @media (max-width: 900px) {\n      padding: 1rem 1rem;\n\n      & > div:last-child {\n        display: flex;\n        flex-direction: row-reverse;\n        align-items: center;\n        gap: 0.25rem;\n\n        #user-login-grp {\n          margin: 0;\n        }\n\n        ul.menu-options {\n          padding: 0;\n          margin: 0;\n          li {\n            margin: 0;\n          }\n        }\n\n        @media (max-width: 600px) {\n          width: 100%;\n          justify-content: center;\n          gap: 10%;\n        }\n      }\n    }\n\n    @media (max-width: 625px) {\n      flex-direction: column;\n    }\n\n    h1 {\n      font-size: 1.5rem;\n      font-style: normal;\n      font-weight: 200;\n      white-space: nowrap;\n      letter-spacing: 0.7rem;\n\n      @media (max-width: 900px) {\n        font-size: 1rem;\n        letter-spacing: 0.3rem;\n      }\n    }\n\n    & > div:first-child {\n      height: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: flex-start;\n      gap: 0.25em;\n\n      img {\n        height: 3rem;\n        aspect-ratio: 1 / 1;\n\n        @media (max-width: 900px) {\n          height: 1.5rem;\n        }\n      }\n    }\n\n    #user-login-grp {\n      display: flex;\n      align-items: center;\n      height: 1em;\n      justify-content: flex-end;\n      margin-bottom: 1em;\n      @media (max-width: 900px) {\n        height: 0.7rem;\n        p {\n          font-size: 0.7rem;\n        }\n      }\n    }\n\n    #upser-login-btn:hover {\n      opacity: 0.6;\n    }\n\n    #open-logout-btn {\n      position: relative;\n      overflow: visible;\n      z-index: 4;\n      opacity: 1;\n      &:hover {\n        cursor: auto;\n        opacity: 1;\n      }\n    }\n\n    #open-logout-btn .tool-tip {\n      min-width: 100px;\n      transform: scale(0);\n      visibility: none;\n      background-color: black;\n      color: white;\n      border: 2px solid white;\n      text-align: center;\n      padding: 0.25rem 1rem;\n      transition: transform 0.5s ease-in-out;\n      transform-origin: top right;\n      display: flex;\n      align-items: center;\n      gap: 1rem;\n      position: absolute;\n      top: 0;\n      right: 0;\n      z-index: 4;\n\n      @media (max-width: 600px) {\n        font-size: 0.7rem;\n        text-wrap: nowrap;\n      }\n\n      h5 {\n        color: white;\n        margin: 0;\n      }\n\n      hr {\n        height: 1rem;\n        border-style: solid;\n      }\n\n      ul {\n        padding: 0;\n        margin: 0;\n\n        li {\n          list-style-type: none;\n          text-wrap: nowrap;\n        }\n      }\n    }\n\n    #open-logout-btn:hover .tool-tip,\n    .tool-tip:hover {\n      visibility: visible;\n      transform: scale(1);\n      pointer-events: auto;\n\n      ul {\n        cursor: pointer;\n\n        &:hover {\n          filter: brightness(0.7);\n        }\n      }\n    }\n\n    #open-logout-btn.active .tool-tip {\n      visibility: visible;\n      transform: scale(1);\n      pointer-events: auto;\n    }\n\n    .login {\n      height: 100%;\n      display: flex;\n      align-items: center;\n      gap: 0.5em;\n      text-transform: none;\n      border: none;\n      background: transparent;\n      color: white;\n      img {\n        height: 100%;\n        width: auto;\n        aspect-ratio: 1 / 1;\n        color: white;\n      }\n    }\n\n    ul.menu-options {\n      margin: 0;\n      display: flex;\n      gap: 1em;\n\n      li {\n        list-style: none;\n        position: relative;\n        margin: 1.5em 0;\n      }\n\n      img {\n        height: 0.8em;\n      }\n    }\n  }\n}\n\n#header-img-container {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 100vh;\n  background-image: var(--bg-img);\n  background-size: cover;\n  background-position: center;\n  -webkit-transition: opacity 1s ease-in-out;\n  -moz-transition: opacity 1s ease-in-out;\n  -o-transition: opacity 1s ease-in-out;\n  transition: background-image 1s ease-in;\n  z-index: -2;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -607,7 +607,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/upTriangle.svg");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/logo.svg");
 
 /***/ }),
 /* 19 */
@@ -617,7 +617,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/github.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/upTriangle.svg");
 
 /***/ }),
 /* 20 */
@@ -627,7 +627,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/linkedin.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/github.png");
 
 /***/ }),
 /* 21 */
@@ -637,7 +637,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/tech.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/linkedin.png");
 
 /***/ }),
 /* 22 */
@@ -647,7 +647,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/stock-hotel-1.jpg");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/tech.png");
 
 /***/ }),
 /* 23 */
@@ -657,7 +657,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/stock-hotel-2.jpg");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/stanley1.jpg");
 
 /***/ }),
 /* 24 */
@@ -667,10 +667,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/stock-hotel-3.jpg");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/stanley2.jpg");
 
 /***/ }),
 /* 25 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("images/stanley3.jpg");
+
+/***/ }),
+/* 26 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -682,8 +692,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getRoomTypes: () => (/* binding */ getRoomTypes),
 /* harmony export */   updateRoomFilterOptions: () => (/* binding */ updateRoomFilterOptions)
 /* harmony export */ });
-/* harmony import */ var _bookings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
-/* harmony import */ var _utility__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(28);
+/* harmony import */ var _bookings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
+/* harmony import */ var _utility__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(29);
 
 
 
@@ -741,7 +751,7 @@ function getRoomPrice(roomNumber, rooms) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -752,9 +762,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   sortBookingsByDate: () => (/* binding */ sortBookingsByDate),
 /* harmony export */   updateUserBookings: () => (/* binding */ updateUserBookings)
 /* harmony export */ });
-/* harmony import */ var _customers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
-/* harmony import */ var _utility__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(28);
-/* harmony import */ var _rooms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(25);
+/* harmony import */ var _customers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(28);
+/* harmony import */ var _utility__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(29);
+/* harmony import */ var _rooms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26);
 
 
 
@@ -825,14 +835,14 @@ function convertDateToValue(date) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   getTotalSpent: () => (/* binding */ getTotalSpent)
 /* harmony export */ });
-/* harmony import */ var _rooms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(25);
+/* harmony import */ var _rooms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
 
 
 function getTotalSpent(customerBookings, rooms) {
@@ -846,7 +856,7 @@ function getTotalSpent(customerBookings, rooms) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -874,7 +884,7 @@ function convertToCurrency(number) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -887,10 +897,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   toggleLoginBtns: () => (/* binding */ toggleLoginBtns),
 /* harmony export */   unhideElement: () => (/* binding */ unhideElement)
 /* harmony export */ });
-/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(30);
-/* harmony import */ var _rooms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
-/* harmony import */ var _uiComponents_roomCards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(31);
-/* harmony import */ var _utility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28);
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
+/* harmony import */ var _rooms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26);
+/* harmony import */ var _uiComponents_roomCards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(32);
+/* harmony import */ var _utility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
 
 
 
@@ -1110,7 +1120,7 @@ function createBookingDetails(booking) {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1120,25 +1130,39 @@ __webpack_require__.r(__webpack_exports__);
 const baseURL = 'https://images.pexels.com/photos/';
 const urlParams = '?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
 
-const images = [
-  '161758/governor-s-mansion-montgomery-alabama-grand-staircase-161758.jpeg',
-  '5371575/pexels-photo-5371575.jpeg',
-  '941861/pexels-photo-941861.jpeg',
-  '261102/pexels-photo-261102.jpeg',
+const images = ['5371575/pexels-photo-5371575.jpeg'];
+
+const pexelURLs = images.map(image => baseURL + image + urlParams);
+
+const googleURLs = [
+  //front view
+  'https://lh3.googleusercontent.com/pw/AP1GczMG_0SAuV4LhXaquUyzz8v-iEmM0kU_JtDVpzVzsmUVgyfYTXj6Ax_24_uJQrVyFVponTpbQ4izicOHqozbZeJbvrUSz90-XDkpVel7FQGhlC749d6NO7pJP1SYfqni6RMgfUwTvTUcHSLB2lB8yETn=w1599-h781-s-no-gm?authuser=0',
+  // lobby
+  'https://lh3.googleusercontent.com/pw/AP1GczOifMXaKvggT1Y9NOPWVX5zElFd7QZ7rri_p8IZzqbsxYUkwL1VGLg-SgsSsqBW29L-kIfSb1P6fFKqR7stOqqMy2wecJA2PpCb6IqBdZ7MYgGrv0my3i7UmZEywXEbZKHLZoYnAawGHds0JA9Kx-br=w1023-h579-s-no-gm?authuser=0',
+  // pond
+  'https://lh3.googleusercontent.com/pw/AP1GczMlWYgkmRBO3NE6yJ44u1CNgR7WtsFisIDSEjsFqUnlwNp-l2A6xqxURCSbkoX1rOp2EoGYU7Wy86HR9ySmwCdyTb_YNI0PY8veMBWSS7iM0wjAr7qf-Ef9hwqNvcQzK9eBLv14qWR0LqqHrM79Xvpt=w1020-h557-s-no-gm?authuser=0',
+  // stairwell
+  'https://lh3.googleusercontent.com/pw/AP1GczOWaz6So2PY45Hi74CTFK7zSUOQM27Mi2Y-e1aovJx4rXug29vaTW-pSJhCLUMCEidClj9XVE-Ma6ndTDxUVHLfw_Ynq8G2l5d1QhHmV9AviKXYiOMdw4it5PxXkQ3_To_vXPioBU1EPAsCCHcq4r0X=w1024-h592-s-no-gm?authuser=0',
+  // lounge
+  'https://lh3.googleusercontent.com/pw/AP1GczMcXjB_x4AkUgfrrqz92LhgHc7XgE_yyVreksD90Qwx-lU2xJMxjdGOsvWeRK1e8en8tUILyS0t0Tv4r7vRKPBuGHQ9g1rUqSS4B2qVU2ORvV9KFe7GM5j6-7ln0gVh-7p2-9SIKJQrKLlW54hutRjr=w1023-h513-s-no-gm?authuser=0',
+  // hallway
+  'https://lh3.googleusercontent.com/pw/AP1GczPf4o2RIaH_9T7WiQ7mVKUk4Mv8xSQoCxDqrL-oS2w-BrKmbYvHvBSdAOvwU0uK5Y9iRU1otKLowsup-ifPMMr5h1Qrjk3ftdbrTm6EM2tjOPyTBJNfuQXXbzMzBFkXbT0bly3UrHDAh1ODRUNCf3oF=w1021-h536-s-no-gm?authuser=0',
+  // tub
+  'https://lh3.googleusercontent.com/pw/AP1GczNXoFwpVlr53AW5H16pH9JOMkarTbzhWvMOfyrwraIULavi-EaFWANndP1YUDq9DDiSFGi4ntpmawhvqf6G5VTvaNSAFCaHRz5lZsHTanq8Z2nvnLYGVXouZcZPv5ezsnHVMfp9-3XctpU1ioI2ZBZs=w1400-h700-s-no-gm?authuser=0',
 ];
 
-const imageURLs = images.map(image => baseURL + image + urlParams);
+const imageURLs = [...pexelURLs, ...googleURLs];
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   createRoomCards: () => (/* binding */ createRoomCards)
 /* harmony export */ });
-/* harmony import */ var _domUpdates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(29);
+/* harmony import */ var _domUpdates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(30);
 
 
 function createRoomCards(rooms, user) {
@@ -1220,7 +1244,7 @@ function createNoRoomsFoundMessage() {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1228,7 +1252,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   createCloseBtn: () => (/* binding */ createCloseBtn),
 /* harmony export */   getComplimentaryBtn: () => (/* binding */ getComplimentaryBtn)
 /* harmony export */ });
-/* harmony import */ var _domUpdates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(29);
+/* harmony import */ var _domUpdates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(30);
 
 /*--- FUNCTIONS ---*/
 //- create button functions -//
@@ -1278,15 +1302,15 @@ function getComplimentaryBtnId(menuBtnId) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   createMenu: () => (/* binding */ createMenu)
 /* harmony export */ });
-/* harmony import */ var _buttons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(32);
-/* harmony import */ var _domUpdates__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(29);
+/* harmony import */ var _buttons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(33);
+/* harmony import */ var _domUpdates__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(30);
 
 
 
@@ -1345,7 +1369,7 @@ const createMenu = () => {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1481,20 +1505,22 @@ var __webpack_exports__ = {};
 (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _images_upTriangle_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
-/* harmony import */ var _images_github_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
-/* harmony import */ var _images_linkedin_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(20);
-/* harmony import */ var _images_tech_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(21);
-/* harmony import */ var _images_stock_hotel_1_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(22);
-/* harmony import */ var _images_stock_hotel_2_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(23);
-/* harmony import */ var _images_stock_hotel_3_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(24);
-/* harmony import */ var _rooms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(25);
-/* harmony import */ var _bookings__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(26);
-/* harmony import */ var _domUpdates__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(29);
-/* harmony import */ var _uiComponents_buttons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(32);
-/* harmony import */ var _uiComponents_menu__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(33);
-/* harmony import */ var _apiCalls__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(34);
-/* harmony import */ var _utility__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(28);
+/* harmony import */ var _images_logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
+/* harmony import */ var _images_upTriangle_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
+/* harmony import */ var _images_github_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(20);
+/* harmony import */ var _images_linkedin_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(21);
+/* harmony import */ var _images_tech_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(22);
+/* harmony import */ var _images_stanley1_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(23);
+/* harmony import */ var _images_stanley2_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(24);
+/* harmony import */ var _images_stanley3_jpg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(25);
+/* harmony import */ var _rooms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(26);
+/* harmony import */ var _bookings__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(27);
+/* harmony import */ var _domUpdates__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(30);
+/* harmony import */ var _uiComponents_buttons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(33);
+/* harmony import */ var _uiComponents_menu__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(34);
+/* harmony import */ var _apiCalls__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(35);
+/* harmony import */ var _utility__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(29);
+
 
 
 
@@ -1519,7 +1545,7 @@ var allBookings = [];
 var userBookings = { selection: 'all', past: [], upcoming: [], totals: {} };
 
 var filterDefaults = {
-  date: (0,_utility__WEBPACK_IMPORTED_MODULE_14__.getCurrentDate)().replaceAll('-', '/'),
+  date: (0,_utility__WEBPACK_IMPORTED_MODULE_15__.getCurrentDate)().replaceAll('-', '/'),
   roomType: '',
   bedSize: '',
 };
@@ -1528,7 +1554,7 @@ var roomFilters = {
   ...filterDefaults,
 };
 //- menu functions -//
-var menu = (0,_uiComponents_menu__WEBPACK_IMPORTED_MODULE_12__.createMenu)();
+var menu = (0,_uiComponents_menu__WEBPACK_IMPORTED_MODULE_13__.createMenu)();
 const { toggleMenuBtns, adjustMenuMaxHeight, hideCloseMenuBtns } = menu;
 /*--- DOM ELEMENTS ---*/
 //- buttons -//
@@ -1558,7 +1584,7 @@ window.onresize = adjustMenuMaxHeight;
 loginBtn.onclick = () => {
   menuContent.innerHTML = '';
   hideCloseMenuBtns();
-  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.openMenu)('login');
+  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.openMenu)('login');
 };
 
 logoutBtn.onclick = logoutUser;
@@ -1568,12 +1594,12 @@ menuBtnGroups.forEach(
     (buttonGrp.onclick = e => {
       const clickedBtn = e.target.closest('button');
       if (clickedBtn) {
-        const otherBtn = (0,_uiComponents_buttons__WEBPACK_IMPORTED_MODULE_11__.getComplimentaryBtn)(clickedBtn);
+        const otherBtn = (0,_uiComponents_buttons__WEBPACK_IMPORTED_MODULE_12__.getComplimentaryBtn)(clickedBtn);
         const { id } = clickedBtn;
         if (id.includes('open')) {
           const [menuType, data] = getMenuTypeAndData(id);
-          (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.openMenu)(menuType, data, user);
-        } else (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.closeMenu)(clickedBtn);
+          (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.openMenu)(menuType, data, user);
+        } else (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.closeMenu)(clickedBtn);
         toggleMenuBtns(clickedBtn, otherBtn);
       }
     })
@@ -1583,18 +1609,18 @@ closeFormBtns.forEach(
   button =>
     (button.onclick = e => {
       const menu = e.target.closest('.menu');
-      (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.hideElement)(menu);
-      (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.closeMenu)();
+      (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.hideElement)(menu);
+      (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.closeMenu)();
     })
 );
 
-altCloseBtn.onclick = () => (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.hideElement)(menuDrawer, 'minimized');
+altCloseBtn.onclick = () => (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.hideElement)(menuDrawer, 'minimized');
 //- check dates form event listeners-//
 checkDatesForm.oninput = e => {
   const { id, value } = e.target;
-  roomFilters = (0,_rooms__WEBPACK_IMPORTED_MODULE_8__.updateRoomFilterOptions)(id, value, roomFilters);
-  filteredRooms = (0,_rooms__WEBPACK_IMPORTED_MODULE_8__.filterRooms)(roomFilters, allRooms, allBookings);
-  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.showMenuContent)('dates', filteredRooms, user);
+  roomFilters = (0,_rooms__WEBPACK_IMPORTED_MODULE_9__.updateRoomFilterOptions)(id, value, roomFilters);
+  filteredRooms = (0,_rooms__WEBPACK_IMPORTED_MODULE_9__.filterRooms)(roomFilters, allRooms, allBookings);
+  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.showMenuContent)('dates', filteredRooms, user);
 };
 
 checkDatesForm.onreset = e => {
@@ -1603,8 +1629,8 @@ checkDatesForm.onreset = e => {
   roomFilters = {
     ...filterDefaults,
   };
-  filteredRooms = (0,_rooms__WEBPACK_IMPORTED_MODULE_8__.filterRooms)(roomFilters, allRooms, allBookings);
-  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.showMenuContent)('dates', filteredRooms, user);
+  filteredRooms = (0,_rooms__WEBPACK_IMPORTED_MODULE_9__.filterRooms)(roomFilters, allRooms, allBookings);
+  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.showMenuContent)('dates', filteredRooms, user);
   //- clear inputs -//
   const dateInput = checkDatesForm.querySelector('input');
   dateInput.value = roomFilters.date.replaceAll('/', '-');
@@ -1637,7 +1663,7 @@ autoLogin.onclick = () => {
   document.body.style.pointerEvents = 'none';
   window.scrollTo({ top: 0, behavior: 'smooth' });
   setTimeout(() => {
-    (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.openMenu)('login');
+    (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.openMenu)('login');
     setTimeout(() => {
       const randomId = Math.ceil(Math.random() * 50);
       inputs[0].value = 'customer' + randomId;
@@ -1650,7 +1676,7 @@ autoLogin.onclick = () => {
 //- bookings form event listeners -//
 bookingsForm.oninput = e => {
   userBookings.selection = e.target.value;
-  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.openMenu)('bookings', userBookings, user);
+  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.openMenu)('bookings', userBookings, user);
 };
 //- menu content event listeners -//
 menuContent.onclick = e => {
@@ -1666,16 +1692,16 @@ menuContent.onclick = e => {
           roomNumber: Number(roomNumber),
           date,
         };
-        (0,_apiCalls__WEBPACK_IMPORTED_MODULE_13__.postResource)('bookings', data)
+        (0,_apiCalls__WEBPACK_IMPORTED_MODULE_14__.postResource)('bookings', data)
           .then(message => console.log(message))
-          .then(() => (0,_apiCalls__WEBPACK_IMPORTED_MODULE_13__.getResource)('bookings'))
+          .then(() => (0,_apiCalls__WEBPACK_IMPORTED_MODULE_14__.getResource)('bookings'))
           .then(({ bookings }) => (allBookings = [...bookings]))
           .then(() => {
             showUserBookings(user, userBookings, allBookings, allRooms);
             roomFilters = {
               ...filterDefaults,
             };
-            filteredRooms = (0,_rooms__WEBPACK_IMPORTED_MODULE_8__.filterRooms)(roomFilters, allRooms, allBookings);
+            filteredRooms = (0,_rooms__WEBPACK_IMPORTED_MODULE_9__.filterRooms)(roomFilters, allRooms, allBookings);
             const dateInput = checkDatesForm.querySelector('input');
             dateInput.value = roomFilters.date.replaceAll('/', '-');
             const selectors = checkDatesForm.querySelectorAll('select');
@@ -1688,7 +1714,7 @@ menuContent.onclick = e => {
 /*--- FUNCTIONS ---*/
 function start() {
   adjustMenuMaxHeight();
-  Promise.all([(0,_apiCalls__WEBPACK_IMPORTED_MODULE_13__.getResource)('rooms'), (0,_apiCalls__WEBPACK_IMPORTED_MODULE_13__.getResource)('bookings')])
+  Promise.all([(0,_apiCalls__WEBPACK_IMPORTED_MODULE_14__.getResource)('rooms'), (0,_apiCalls__WEBPACK_IMPORTED_MODULE_14__.getResource)('bookings')])
     .then(data => {
       updateGlobalVariables(...data);
     })
@@ -1698,8 +1724,8 @@ function start() {
 function updateGlobalVariables({ rooms }, { bookings }) {
   allRooms = [...rooms];
   allBookings = [...bookings];
-  filteredRooms = (0,_rooms__WEBPACK_IMPORTED_MODULE_8__.filterRooms)(roomFilters, allRooms, allBookings);
-  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.loadContent)(allRooms);
+  filteredRooms = (0,_rooms__WEBPACK_IMPORTED_MODULE_9__.filterRooms)(roomFilters, allRooms, allBookings);
+  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.loadContent)(allRooms);
 }
 
 function loginUser() {
@@ -1710,7 +1736,7 @@ function loginUser() {
   resetLoginForm();
   openLogoutBtn.querySelector('p').innerText = name;
   openLogoutBtn.querySelector('h5').innerText = name;
-  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.toggleLoginBtns)();
+  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.toggleLoginBtns)();
 
   showUserBookings(user, userBookings, allBookings, allRooms);
 }
@@ -1726,19 +1752,19 @@ function logoutUser() {
   openLogoutBtn.querySelector('p').innerText = '';
   openLogoutBtn.querySelector('h5').innerText = '';
 
-  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.toggleLoginBtns)();
-  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.hideElement)(menuDrawer, 'minimized');
+  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.toggleLoginBtns)();
+  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.hideElement)(menuDrawer, 'minimized');
   hideCloseMenuBtns();
 }
 
 function showUserBookings(user, userBookings, allBookings, allRooms) {
-  (0,_bookings__WEBPACK_IMPORTED_MODULE_9__.updateUserBookings)(user, userBookings, allBookings, allRooms);
+  (0,_bookings__WEBPACK_IMPORTED_MODULE_10__.updateUserBookings)(user, userBookings, allBookings, allRooms);
 
-  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.hideElement)(menuDrawer, 'minimized');
+  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.hideElement)(menuDrawer, 'minimized');
   hideCloseMenuBtns();
   setTimeout(() => {
-    const closeBookingsBtn = (0,_uiComponents_buttons__WEBPACK_IMPORTED_MODULE_11__.getComplimentaryBtn)(openBookingsBtn);
-    (0,_domUpdates__WEBPACK_IMPORTED_MODULE_10__.openMenu)('bookings', userBookings, user);
+    const closeBookingsBtn = (0,_uiComponents_buttons__WEBPACK_IMPORTED_MODULE_12__.getComplimentaryBtn)(openBookingsBtn);
+    (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.openMenu)('bookings', userBookings, user);
     toggleMenuBtns(openBookingsBtn, closeBookingsBtn);
   }, 500);
 }
@@ -1761,7 +1787,7 @@ function validateLoginInfo(username, password) {
   } else if (username.startsWith('customer') && password === 'overlook2021') {
     const id = Number(username.slice(8));
     if (id) {
-      (0,_apiCalls__WEBPACK_IMPORTED_MODULE_13__.getResource)('customers', id)
+      (0,_apiCalls__WEBPACK_IMPORTED_MODULE_14__.getResource)('customers', id)
         .then(customer => {
           user = customer;
           loginUser();

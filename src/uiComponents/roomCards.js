@@ -51,7 +51,7 @@ function createRoomInfo(room) {
     roomType,
     bedSize,
     numBeds,
-    bidet ? '✓' : '✗',
+    bidet ? '<span class="green">✓</span>' : '<span class="red">✗</span>',
   ];
   const infoContainer = document.createElement('div');
   infoContainer.classList.add('room-card-info');
@@ -65,7 +65,10 @@ function createInfoColumn(...items) {
   items.forEach(item => {
     const element = document.createElement('li');
     element.classList.add('room-info-item');
-    element.innerText = item;
+    if (typeof item === 'string' && item.startsWith('<span')) {
+      element.innerHTML = item;
+    } else element.innerText = item;
+
     infoColumn.appendChild(element);
   });
   return infoColumn;

@@ -34,6 +34,8 @@ var filterDefaults = {
   date: getCurrentDate().replaceAll('-', '/'),
   roomType: '',
   bedSize: '',
+  bedCount: '',
+  hasBidet: false,
 };
 
 var roomFilters = {
@@ -103,8 +105,11 @@ closeFormBtns.forEach(
 altCloseBtn.onclick = () => hideElement(menuDrawer, 'minimized');
 //- check dates form event listeners-//
 checkDatesForm.oninput = e => {
-  const { id, value } = e.target;
-  roomFilters = updateRoomFilterOptions(id, value, roomFilters);
+  const { id, value, type } = e.target;
+  roomFilters =
+    type === 'checkbox'
+      ? updateRoomFilterOptions(id, e.target.checked, roomFilters)
+      : updateRoomFilterOptions(id, value, roomFilters);
   filteredRooms = filterRooms(roomFilters, allRooms, allBookings);
   showMenuContent('dates', filteredRooms, user);
 };
