@@ -25,10 +25,13 @@ export function getRoomTypes(rooms) {
 }
 //- room filtering functions -//
 export function filterRooms(filters, rooms, bookings) {
-  const { date, roomType, bedSize } = filters;
+  const { date, roomType, bedSize, hasBidet } = filters;
   const availableRooms = getAvailableRooms(new Date(date), rooms, bookings);
   return availableRooms.filter(
-    room => room.roomType.includes(roomType) && room.bedSize.includes(bedSize)
+    room => {
+      if (hasBidet && !room.bidet) return false;
+      return room.roomType.includes(roomType) && room.bedSize.includes(bedSize)
+    }
   );
 }
 
@@ -37,6 +40,7 @@ function getFilterKeyFromInputID(id) {
     'vacancy-date': 'date',
     'vacancy-room-types': 'roomType',
     'vacancy-bed-sizes': 'bedSize',
+    'vacancy-bidet': 'hasBidet'
   };
 
   return filterKeys[id];
