@@ -251,7 +251,7 @@ function logoutUser() {
   userBookings = { selection: 'all' };
 
   openLogoutBtn.querySelector('p').innerText = '';
-  openLogoutBtn.querySelector('h5').innerText = '';
+  openLogoutBtn.querySelector('h2').innerText = '';
 
   toggleLoginBtns();
   hideElement(menuDrawer, 'minimized');
