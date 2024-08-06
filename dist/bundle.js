@@ -1020,13 +1020,13 @@ function closeMenu(closeBtn) {
   });
 
   hideElement(menuDrawer, 'minimized');
-  hideElement(closeBtn);
-  if (closeBtn)
-    setTimeout(() => {
-      openMenuBtns.forEach(button => unhideElement(button));
+  setTimeout(() => {
+    openMenuBtns.forEach(button => unhideElement(button));
+    if (closeBtn) {
       hideElement(closeBtn, 'hidden');
       closeBtn.querySelector('img').classList.add('clear');
-    }, 500);
+    }
+  }, 500);
 }
 
 const showMenuType = {
@@ -1624,7 +1624,9 @@ closeFormBtns.forEach(
     })
 );
 
-altCloseBtn.onclick = () => (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.hideElement)(menuDrawer, 'minimized');
+altCloseBtn.onclick = () => {
+  (0,_domUpdates__WEBPACK_IMPORTED_MODULE_11__.closeMenu)();
+};
 //- check dates form event listeners-//
 checkDatesForm.oninput = e => {
   const { id, value, type } = e.target;

@@ -132,6 +132,7 @@
         width: 100%;
         border: none;
         color: var(--isValid-color);
+        accent-color: var(--red);
 
         &:hover {
           cursor: pointer;
@@ -183,6 +184,9 @@
 
       input[type='radio'] {
         accent-color: var(--red);
+        @media (max-width: 600px) {
+          height: 0.75rem;
+        }
       }
     }
 
