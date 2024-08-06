@@ -228,7 +228,7 @@ function loginUser() {
   });
   resetLoginForm();
   openLogoutBtn.querySelector('p').innerText = name;
-  openLogoutBtn.querySelector('h5').innerText = name;
+  openLogoutBtn.querySelector('h2').innerText = name;
   toggleLoginBtns();
 
   showUserBookings(user, userBookings, allBookings, allRooms);

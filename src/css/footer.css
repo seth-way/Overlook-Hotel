@@ -15,12 +15,21 @@ footer {
     color: white;
   }
 
+  a:hover img {
+    filter: drop-shadow(0 0 6px rgba(107, 198, 68, 0.8));
+  }
+
+  a:last-child:hover img {
+    filter: drop-shadow(0 0 6px rgba(0, 114, 177, 0.8));
+  }
+
   .social-links {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 
   img {
-    height: 1em;
+    height: 2em;
+    transition: all 0.5s ease-in-out;
   }
 }

@@ -131,9 +131,11 @@ body > header {
         text-wrap: nowrap;
       }
 
-      h5 {
+      h2 {
         color: white;
         margin: 0;
+        font-size: 0.8rem;
+        text-wrap: nowrap;
       }
 
       hr {
