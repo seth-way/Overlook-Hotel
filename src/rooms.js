@@ -49,7 +49,7 @@ function getFilterKeyFromInputID(id) {
 export function updateRoomFilterOptions(id, value, filterOptions) {
   const key = getFilterKeyFromInputID(id);
   filterOptions[key] = key === 'date' ? value.replaceAll('-', '/') : value;
-  console.log(filterOptions);
+
   return filterOptions;
 }
 

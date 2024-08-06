@@ -32,7 +32,7 @@
     overflow-y: auto;
     gap: 2rem;
     padding: 1rem;
-    @media(max-width: 900px) {
+    @media (max-width: 900px) {
       gap: 1rem;
       padding: 0.5rem;
     }
@@ -96,11 +96,13 @@
           }
 
           .red {
-            color: red;
+            color: var(--red);
+            font-weight: 800;
           }
 
           .green {
-            color: green;
+            color: #306844;
+            font-weight: 800;
           }
         }
       }
@@ -171,7 +173,7 @@
   #bookings-lists {
     min-width: 80%;
     overflow-y: auto;
-    @media(max-width: 900px) {
+    @media (max-width: 900px) {
       font-size: 0.8rem;
     }
 
@@ -191,21 +193,21 @@
 
       .booking-date {
         width: 10rem;
-        @media(max-width: 900px) {
+        @media (max-width: 900px) {
           width: 7rem;
         }
       }
 
       .booking-room {
         width: 6rem;
-        @media(max-width: 900px) {
+        @media (max-width: 900px) {
           width: 4rem;
         }
       }
 
       .booking-price {
         width: 7rem;
-        @media(max-width: 900px) {
+        @media (max-width: 900px) {
           width: 6rem;
         }
       }

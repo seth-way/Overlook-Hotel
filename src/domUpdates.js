@@ -1,4 +1,3 @@
-import { imageURLs } from './data';
 import { getRoomTypes } from './rooms';
 import { createRoomCards } from './uiComponents/roomCards';
 import { getCurrentDate } from './utility';
@@ -68,8 +67,8 @@ function setDefaults() {
 }
 //- animation functions -//
 function updateHeaderBackgroundImg(idx = 0) {
-  idx = idx % imageURLs.length;
-  const imgUrl = `url('${imageURLs[idx]}')`;
+  idx = idx % 9;
+  const imgUrl = `url('./images/bg${idx + 1}.jpg')`;
   headerImg.style.backgroundImage = imgUrl;
 
   setTimeout(() => {

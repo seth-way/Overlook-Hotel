@@ -7,13 +7,21 @@ import './images/tech.png';
 import './images/stanley1.jpg';
 import './images/stanley2.jpg';
 import './images/stanley3.jpg';
+import './images/bg1.jpg';
+import './images/bg2.jpg';
+import './images/bg3.jpg';
+import './images/bg4.jpg';
+import './images/bg5.jpg';
+import './images/bg6.jpg';
+import './images/bg7.jpg';
+import './images/bg8.jpg';
+import './images/bg9.jpg';
 
 import { filterRooms, updateRoomFilterOptions } from './rooms';
 import { updateUserBookings } from './bookings';
 import {
   loadContent,
   hideElement,
-  unhideElement,
   openMenu,
   closeMenu,
   showMenuContent,
@@ -228,7 +236,7 @@ function loginUser() {
   });
   resetLoginForm();
   openLogoutBtn.querySelector('p').innerText = name;
-  openLogoutBtn.querySelector('h5').innerText = name;
+  openLogoutBtn.querySelector('h2').innerText = name;
   toggleLoginBtns();
 
   showUserBookings(user, userBookings, allBookings, allRooms);
