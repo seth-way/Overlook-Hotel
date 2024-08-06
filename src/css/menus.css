@@ -60,6 +60,8 @@
 
     @media (max-width: 900px) {
       flex-wrap: wrap;
+      row-gap: 0.25rem;
+      column-gap: 1rem;
     }
 
     [class$='group'] {
@@ -88,7 +90,7 @@
         &.bed-count-type {
           max-width: 6rem;
         }
-        
+
         &.bidet-type {
           max-width: 8rem;
 
