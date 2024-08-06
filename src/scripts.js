@@ -1,11 +1,12 @@
 import './css/styles.css';
+import './images/logo.svg';
 import './images/upTriangle.svg';
 import './images/github.png';
 import './images/linkedin.png';
 import './images/tech.png';
-import './images/stock-hotel-1.jpg';
-import './images/stock-hotel-2.jpg';
-import './images/stock-hotel-3.jpg';
+import './images/stanley1.jpg';
+import './images/stanley2.jpg';
+import './images/stanley3.jpg';
 
 import { filterRooms, updateRoomFilterOptions } from './rooms';
 import { updateUserBookings } from './bookings';
