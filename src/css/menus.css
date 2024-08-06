@@ -85,6 +85,10 @@
         &.bed-type {
           max-width: 10rem;
         }
+        &.bed-count-type {
+          max-width: 6rem;
+        }
+        
         &.bidet-type {
           max-width: 8rem;
 
