@@ -39,4 +39,4 @@ This application was built by [Seth Way](https://github.com/seth-way).
 ### Wins + Challenges:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
 - In order to deploy this UI to github pages the locally running API also had to be deployed. I worked through this process and tracked my steps in a [public gist](https://gist.github.com/seth-way/674391fa848d484c68320f7aec4acb9d) so that my classmates and myself have access to a working example tutorial.
-- The finished product is not only mobile friendly, but also recieved a 100 accessibility score from Google Lighthouse.
+- The finished product is not only mobile friendly, but also received a 100 accessibility score from Google Lighthouse.
